@@ -1,6 +1,7 @@
 {
   "name": "skills-radar",
   "version": "1.0.0",
+  "type": "module",
   "description": "追踪 Skills 技术，让 Agent 能力进化有迹可循",
   "scripts": {
     "dev": "vitepress dev docs",

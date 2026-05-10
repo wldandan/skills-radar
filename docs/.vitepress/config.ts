@@ -4,6 +4,7 @@ export default defineConfig({
   title: 'Skills Radar',
   description: '追踪 Skills 技术，让 Agent 能力进化有迹可循',
   base: '/skills-radar/',
+  ignoreDeadLinks: true,
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
@@ -18,7 +19,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '技术雷达', link: '/radar/' },
       { text: '技术分类', link: '/radar/category-01-generation' },
-      { text: 'GitHub', link: 'https://github.com/leon-wang2021/skills-radar' },
+      { text: 'GitHub', link: 'https://github.com/wldandan/skills-radar' },
     ],
 
     sidebar: {
@@ -48,7 +49,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/leon-wang2021/skills-radar' }
+      { icon: 'github', link: 'https://github.com/wldandan/skills-radar' }
     ],
 
     footer: {
