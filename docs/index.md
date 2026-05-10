@@ -1,0 +1,38 @@
+---
+layout: home
+
+hero:
+  name: Skills Radar
+  text: 追踪 Skills 技术，让 Agent 能力进化有迹可循
+  tagline: 基于 skill-insight 全生命周期管理方法论
+  image:
+    src: /logo.svg
+    alt: Skills Radar
+  actions:
+    - theme: brand
+      text: 查看技术雷达 →
+      link: /radar/01-taxonomy
+    - theme: alt
+      text: GitHub
+      link: https://github.com/leon-wang2021/skills-radar
+
+features:
+  - icon: 📦
+    title: 技术分类体系
+    details: 基于 skill-insight 生命周期方法论，六大阶段分类：生成/召回/执行/评测/优化/管理
+  - icon: 📊
+    title: 技术成熟度评估
+    details: 多维度评估各技术领域，从技术成熟度、创新性、落地程度、生态活跃度四个维度综合评分
+  - icon: ⏱️
+    title: 技术演进时间线
+    details: 展示技术从 2023 年 API 插件时代到 2026 年 Skill 时代的完整演进历程
+  - icon: 🔍
+    title: 代表项目调研
+    details: 覆盖学术论文、开源项目、工业实现，每个技术领域至少 3 个代表项目
+  - icon: 📈
+    title: Radar 可视化
+    details: 多维技术雷达图展示，直观比较各技术领域的发展水平
+  - icon: 🔗
+    title: 生态联动
+    details: 与 tech-blog 专栏和 skill-insight 项目深度整合，形成完整知识体系
+---
