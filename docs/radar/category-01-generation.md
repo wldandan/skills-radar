@@ -72,6 +72,8 @@
 
 **适用场景**：从成功案例中快速生成 Skill
 
+**详细页面**：[Trace2Skill 详解](./tech-trace2skill)
+
 ### 3.2 D2Skill
 
 双粒度动态技能库，驱动策略-技能协同进化。
@@ -83,7 +85,20 @@
 
 **适用场景**：需要精细化控制的复杂任务
 
-### 3.3 Memento-Skills
+**详细页面**：[D2Skill 详解](./tech-d2skill)
+
+### 3.3 SkillX
+
+为 Agent 打造自动化构建、可复用的 Skill 库。
+
+**核心能力**：
+- 三层分层技能架构（规划→功能→原子）
+- 全自动构建流程
+- 跨模型赋能弱模型
+
+**详细页面**：[SkillX 详解](./tech-skillx)
+
+### 3.4 Memento-Skills
 
 让 Agent 自主设计 Skill，实现自我进化。
 
@@ -94,7 +109,9 @@
 
 **适用场景**：需要 Agent 自主进化的场景
 
-### 3.4 SKILLRL
+**详细页面**：[Memento-Skills 详解](./tech-memento-skills)
+
+### 3.5 SKILLRL
 
 通过技能的强化学习促进 Agent 自进化。
 
@@ -105,7 +122,9 @@
 
 **链接**：[GitHub](https://github.com/aiming-lab/SkillRL)
 
-### 3.5 Skill Creator 2.0
+**详细页面**：[SKILLRL 详解](./tech-skillrl)
+
+### 3.6 Skill Creator 2.0
 
 Anthropic 人机协作持续优化，使 Agent 能加载专业技能。
 

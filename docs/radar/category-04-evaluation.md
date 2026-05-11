@@ -72,6 +72,8 @@ openEuler 社区推出的多维评测与执行追溯平台。
 
 **链接**：[AtomGit](https://atomgit.com/openeuler/witty-skill-insight)
 
+**详细页面**：[skill-insight 详解](./tech-skillinsight)
+
 ### 3.2 SkillsBench
 
 衡量智能体技能在多样化任务中表现的基准测试。
@@ -81,6 +83,8 @@ openEuler 社区推出的多维评测与执行追溯平台。
 - 模型无法可靠生成对自身有效的技能
 - 技能设计应遵循"少即是多"原则（2-3 个技能效果最佳）
 
+**详细页面**：[SkillsBench 详解](./tech-skillsbench)
+
 ### 3.3 SkillProbe
 
 用"魔法"打败"魔法"——用 Skill 审计 Skills。
@@ -89,6 +93,8 @@ openEuler 社区推出的多维评测与执行追溯平台。
 - 安全漏洞检测
 - 权限滥用检测
 - 恶意行为识别
+
+**详细页面**：[SkillProbe 详解](./tech-skillprobe)
 
 ---
 

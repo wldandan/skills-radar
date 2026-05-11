@@ -45,6 +45,24 @@ export default defineConfig({
             { text: 'Skill 管理', link: '/radar/category-06-management' },
           ]
         },
+        {
+          text: '具体技术详解',
+          items: [
+            { text: 'skill-insight', link: '/radar/tech-skillinsight' },
+            { text: 'SkillRouter', link: '/radar/tech-skillrouter' },
+            { text: 'Graph of Skills', link: '/radar/tech-graph-of-skills' },
+            { text: 'Trace2Skill', link: '/radar/tech-trace2skill' },
+            { text: 'D2Skill', link: '/radar/tech-d2skill' },
+            { text: 'SkillX', link: '/radar/tech-skillx' },
+            { text: 'SkVM', link: '/radar/tech-skvm' },
+            { text: 'SkillProbe', link: '/radar/tech-skillprobe' },
+            { text: 'SkillForge', link: '/radar/tech-skillforge' },
+            { text: 'SkillReducer', link: '/radar/tech-skillreducer' },
+            { text: 'Memento-Skills', link: '/radar/tech-memento-skills' },
+            { text: 'SkillsBench', link: '/radar/tech-skillsbench' },
+            { text: 'SKILLRL', link: '/radar/tech-skillrl' },
+          ]
+        },
       ],
     },
 
