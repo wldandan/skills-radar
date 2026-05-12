@@ -425,20 +425,24 @@ function allLinks(tech) {
 }
 
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+@media (max-width: 480px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .tech-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 10px 6px 8px;
+  gap: 4px;
+  padding: 8px 4px 6px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
   text-align: center;
@@ -449,18 +453,19 @@ function allLinks(tech) {
 }
 
 .tech-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: var(--accent);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  z-index: 1;
 }
 
 .logo-wrap {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--vp-c-divider);
@@ -477,7 +482,7 @@ function allLinks(tech) {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 6px;
+  padding: 4px;
   box-sizing: border-box;
 }
 
@@ -489,16 +494,16 @@ function allLinks(tech) {
   justify-content: center;
   color: #fff;
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
 }
 
 .logo-wrap.large .logo-block { font-size: 24px; }
 
 .tech-name {
   font-weight: 600;
-  font-size: 12px;
-  line-height: 1.25;
+  font-size: 11px;
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -508,35 +513,28 @@ function allLinks(tech) {
 }
 
 .tech-source {
-  font-size: 10px;
-  color: var(--vp-c-text-2);
-  line-height: 1.25;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  display: none;  /* 在密集网格里太挤，省略源信息，留给 modal 展示 */
 }
 
 .card-metric {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 10.5px;
+  gap: 2px;
+  font-size: 9.5px;
   font-weight: 600;
   color: var(--vp-c-text-2);
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
-  padding: 1px 7px;
-  border-radius: 10px;
-  margin-top: 2px;
+  padding: 0 5px;
+  border-radius: 8px;
+  margin-top: 1px;
   white-space: nowrap;
   letter-spacing: 0.2px;
+  line-height: 1.5;
 }
 
 .card-metric-icon {
-  font-size: 10px;
+  font-size: 9px;
   filter: saturate(1.2);
 }
 
