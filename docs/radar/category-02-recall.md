@@ -14,7 +14,7 @@
 | [AgentSkillOS](tech-agentskillos) | 学术 | Capability Tree + DAG | 200–200K 规模逼近理想 |
 | [SkillNet](tech-skillnet) | 浙大 NLP (735 ★) | Ontology 三层架构 | **200K+ Skill 仓库** |
 | [SkillRouter.org](tech-skillrouter-org) | 商业（早期） | MCP 路由服务 | 落地页阶段，无公开评测 |
-| **[SkillRet](tech-skillret)** ★ | 学术 | Skill 检索 benchmark | 17,810 Skill / NDCG@10 +13.1 |
+| [SkillRet](tech-skillret) | 学术 | Skill 检索 benchmark | 17,810 Skill / NDCG@10 +13.1 |
 
 ---
 

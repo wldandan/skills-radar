@@ -14,7 +14,7 @@
 | [SkillNet (5 维评分)](tech-skillnet) | 浙大 NLP (735 ★) | 5 维内在质量评估 | ALFWorld +40% reward, -30% 步骤 |
 | [EvoSkills (Surrogate Verifier)](tech-evoskills) | 学术 | 主动生成测试断言 + 失败诊断 | 去掉 Surrogate 通过率从 71.1% 跌至 41.1% |
 | [SkillForge (Diagnostician)](tech-skillforge) | 工业研究 (SIGIR 2026) | 失败追溯回 Skill 缺陷 | 1,883 工单 + 5 场景 |
-| **[SkillRet](tech-skillret)** ★ | 学术 | Skill 检索大规模 benchmark | **17,810 Skill / 63K 训练 / 5K 评测，NDCG@10 +13.1** |
+| [SkillRet](tech-skillret) | 学术 | Skill 检索大规模 benchmark | **17,810 Skill / 63K 训练 / 5K 评测，NDCG@10 +13.1** |
 
 ---
 

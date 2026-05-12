@@ -17,7 +17,7 @@
 | [SkillReducer](tech-skillreducer) | 港科大 | 静态压缩 + 渐进披露 | **600 Skill + SkillsBench，压缩后 +2.8%** |
 | [EvoSkill (Pareto)](tech-evoskill) | Sentient AGI (726 ★) | Pareto 前沿 + Git 分支 | +7.3% OfficeQA / +12.1% SealQA |
 | [SkillForge (Optimizer)](tech-skillforge) | 工业研究 (SIGIR 2026) | 三阶段失败归因 | 1,883 工单 + 5 场景 |
-| **[SkillRL](tech-skillrl)** ★ | aiming-lab | Skill 库随 RL 策略递归共进化 | +15.3% ALFWorld / WebShop |
+| [SkillRL](tech-skillrl) | aiming-lab | Skill 库随 RL 策略递归共进化 | +15.3% ALFWorld / WebShop |
 
 ---
 
@@ -32,7 +32,7 @@
 | 双环架构（Skill + 权重） | MetaClaw | 零停机 + 同时进化 | 绑定 OpenClaw + 需模型权限 |
 | DSPy + GEPA 优化 | Hermes | 理解"为什么失败" | 绑定 Hermes + PR 需人审 |
 | 三模式实时进化 | OpenSpace | 覆盖最广 | 长期稳定性未验证 |
-| **RL 共进化** ★ | SkillRL | Skill 库与策略一起学习 | 需要可定义 reward |
+| RL 共进化 | SkillRL | Skill 库与策略一起学习 | 需要可定义 reward |
 
 ---
 

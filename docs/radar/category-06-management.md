@@ -10,7 +10,7 @@
 
 | 产品 | 来源 | 核心路径 | 关键数字 |
 |---|---|---|---|
-| **[Vercel skills.sh](tech-skills-sh)** ★ | Vercel (2026-01) | 工业级分发 + 排行榜 | **90,000+ Skill / 19 Agent 框架** |
+| [Vercel skills.sh](tech-skills-sh) | Vercel (2026-01) | 工业级分发 + 排行榜 | **90,000+ Skill / 19 Agent 框架** |
 | [SkillNet](tech-skillnet) | 浙大 NLP (735 ★) | 200K+ Skill 集中式公共市场 | 5 维评分体系 |
 | [AgentSkillOS](tech-agentskillos) | 学术 | Capability Tree 生命周期管理 | 200–200K 规模逼近理想 |
 | [Agent Skills 标准](tech-skills-standard) | 社区开放标准（Anthropic 发起） | 跨平台格式与协议 | ~38+ 产品采用 |

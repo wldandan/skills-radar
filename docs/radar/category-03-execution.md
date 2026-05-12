@@ -13,7 +13,7 @@
 | [OpenSpace](tech-openspace) | HKU (**6.1K+ ★**) | MCP Server 即插即用 | 220 任务 40.8% → 70.8% |
 | [AgentSkillOS](tech-agentskillos) | 学术 | DAG 并行 / 串行编排 | 30 任务 5 类基准 |
 | [Memento-Skills](tech-memento-skills) | 学术 (1.4K+ ★) | Read→Execute→Reflect→Write | GAIA +26.2% / HLE +116.2% |
-| **[SkCC](tech-skcc)** ★ | 学术 | SkIR 强类型 IR 跨框架编译 | **Claude Code 21.1% → 33.3% · Kimi CLI 35.1% → 48.7%** |
+| [SkCC](tech-skcc) | 学术 | SkIR 强类型 IR 跨框架编译 | **Claude Code 21.1% → 33.3% · Kimi CLI 35.1% → 48.7%** |
 
 ---
 

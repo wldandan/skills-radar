@@ -29,16 +29,16 @@
 | 编号 | 项目 | 类型 |
 |---|---|---|
 | [2601.10338](https://arxiv.org/abs/2601.10338) | Liu et al. *Agent Skills in the Wild: Security Vulnerabilities at Scale* | 安全研究 — 揭示 26.1% 社区 Skill 含漏洞 |
-| **2026-01-20** | **Vercel [skills.sh](tech-skills-sh) 上线** ★ | 工业 marketplace — 90K+ Skill / 19 Agent 框架 |
+| **2026-01-20** | **Vercel [skills.sh](tech-skills-sh) 上线** | 工业 marketplace — 90K+ Skill / 19 Agent 框架 |
 
 ### 2026 年 2 月
 
 | 编号 | 项目 | 类型 |
 |---|---|---|
-| [2602.08234](https://arxiv.org/abs/2602.08234) | [SkillRL](tech-skillrl) ★ | 生成 / 优化 — Skill 库与 RL 策略递归共进化 |
+| [2602.08234](https://arxiv.org/abs/2602.08234) | [SkillRL](tech-skillrl) | 生成 / 优化 — Skill 库与 RL 策略递归共进化 |
 | [2602.12430](https://arxiv.org/abs/2602.12430) | Xu & Yan. *Agent Skills for LLMs: Architecture, Acquisition, Security* | 综述 — 76.3% 安全问题需跨模态检测 |
 | [2602.12670](https://arxiv.org/abs/2602.12670) | [SkillsBench](tech-skillsbench) | 评测基准 — 7,308 轨迹 / 84 任务 / 11 领域 |
-| [2602.20867](https://arxiv.org/abs/2602.20867) | Jiang et al. *SoK: Agentic Skills — Beyond Tool Use in LLM Agents* ★ | 综述 — 该领域的 canonical SoK，定义 7 阶段生命周期 |
+| [2602.20867](https://arxiv.org/abs/2602.20867) | Jiang et al. *SoK: Agentic Skills — Beyond Tool Use in LLM Agents* | 综述 — 该领域的 canonical SoK，定义 7 阶段生命周期 |
 
 ### 2026 年 3 月
 
@@ -66,8 +66,8 @@
 
 | 编号 | 项目 | 类型 |
 |---|---|---|
-| [2605.03353](https://arxiv.org/abs/2605.03353) | [SkCC](tech-skcc) ★ | 执行 — SkIR 强类型 IR，跨框架可移植性 |
-| [2605.05726](https://arxiv.org/abs/2605.05726) | [SkillRet](tech-skillret) ★ | 召回 / 评测 — Skill 检索大规模 benchmark（17,810 Skill）|
+| [2605.03353](https://arxiv.org/abs/2605.03353) | [SkCC](tech-skcc) | 执行 — SkIR 强类型 IR，跨框架可移植性 |
+| [2605.05726](https://arxiv.org/abs/2605.05726) | [SkillRet](tech-skillret) | 召回 / 评测 — Skill 检索大规模 benchmark（17,810 Skill）|
 
 ---
 
@@ -82,7 +82,7 @@
 | 持续 | [Claudeception](tech-claudeception) | 社区开源 · **2.3K+ ★** |
 | 持续 | [SkillRouter.org](tech-skillrouter-org) | 早期阶段 MCP 路由商业服务（落地页阶段）|
 | 持续 | [agentskills.io](tech-skills-standard) | Anthropic 发起的跨平台 Skill 开放标准（~38+ 产品采用）|
-| 持续 | [Vercel skills.sh](tech-skills-sh) ★ | 工业级 Skill marketplace（90K+ Skill / 19 Agent 框架）|
+| 持续 | [Vercel skills.sh](tech-skills-sh) | 工业级 Skill marketplace（90K+ Skill / 19 Agent 框架）|
 | 持续 | [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/) | 安全治理指南立项 |
 
 ---

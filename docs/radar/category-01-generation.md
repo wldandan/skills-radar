@@ -18,7 +18,7 @@
 | [Trace2Skill](tech-trace2skill) | 阿里 Qwen + ETH | 并行轨迹蒸馏 | 35B +57.65pp 超 122B |
 | [SkillForge](tech-skillforge) | 工业研究 (SIGIR 2026) | 历史工单挖掘 | **1,883 工单 + 5 真实场景** |
 | [SkillX](tech-skillx) | 学术 | 三层粒度蒸馏 | 强模型 → 弱模型 |
-| **[SkillRL](tech-skillrl)** ★ | aiming-lab | 经验蒸馏 + RL 共进化 | **+15.3% ALFWorld / WebShop** |
+| [SkillRL](tech-skillrl) | aiming-lab | 经验蒸馏 + RL 共进化 | **+15.3% ALFWorld / WebShop** |
 
 ---
 
@@ -74,4 +74,4 @@ Skill 库里 30 个 Skill 做类似的事，不知道用哪个，也不敢删。
 | 会话提取 | Claudeception | 隐性知识自动捕获 | 提取质量依赖 LLM 判断 |
 | 文档转化 | Skill Seekers | 多源多平台 | 仅处理已有文档 |
 | 领域工单挖掘 | SkillForge | 工业场景验证 | 仅限工单数据 |
-| RL 共进化 ★ | SkillRL | Skill 库随策略一起学习 | 需要可定义 reward |
+| RL 共进化 | SkillRL | Skill 库随策略一起学习 | 需要可定义 reward |
