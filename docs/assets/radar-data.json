@@ -43,7 +43,8 @@
               }
             ]
           },
-          "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=128"
+          "logo": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=128",
+          "metrics": {}
         },
         {
           "id": "skill-seekers",
@@ -75,7 +76,8 @@
           "metrics": {
             "stars": 13449,
             "forks": 1389,
-            "repo": "yusufkaraaslan/Skill_Seekers"
+            "repo": "yusufkaraaslan/Skill_Seekers",
+            "createdAt": "2025-10-17"
           }
         },
         {
@@ -113,7 +115,8 @@
             "stars": 730,
             "forks": 79,
             "repo": "sentient-agi/EvoSkill",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-03-04"
           }
         },
         {
@@ -155,7 +158,8 @@
             "stars": 21,
             "forks": 1,
             "repo": "Zhang-Henry/CoEvoSkills",
-            "paperDate": "2026-04"
+            "paperDate": "2026-04",
+            "createdAt": "2026-04-11"
           }
         },
         {
@@ -188,7 +192,8 @@
           "metrics": {
             "stars": 2322,
             "forks": 22,
-            "repo": "blader/Claudeception"
+            "repo": "blader/Claudeception",
+            "createdAt": "2026-01-17"
           }
         },
         {
@@ -317,7 +322,8 @@
             "stars": 720,
             "forks": 55,
             "repo": "aiming-lab/SkillRL",
-            "paperDate": "2026-02"
+            "paperDate": "2026-02",
+            "createdAt": "2026-02-08"
           }
         }
       ]
@@ -362,7 +368,8 @@
             "stars": 107,
             "forks": 7,
             "repo": "zhengyanzhao1997/SkillRouter",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-03-26"
           }
         },
         {
@@ -438,7 +445,8 @@
             "stars": 738,
             "forks": 72,
             "repo": "zjunlp/SkillNet",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-01-10"
           }
         },
         {
@@ -470,7 +478,8 @@
               }
             ]
           },
-          "logo": "https://www.google.com/s2/favicons?domain=skillrouter.org&sz=128"
+          "logo": "https://www.google.com/s2/favicons?domain=skillrouter.org&sz=128",
+          "metrics": {}
         }
       ]
     },
@@ -514,7 +523,8 @@
           "metrics": {
             "stars": 6125,
             "forks": 759,
-            "repo": "HKUDS/OpenSpace"
+            "repo": "HKUDS/OpenSpace",
+            "createdAt": "2026-03-24"
           }
         },
         {
@@ -580,7 +590,8 @@
             "stars": 1367,
             "forks": 154,
             "repo": "Memento-Teams/Memento-Skills",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-02-13"
           }
         },
         {
@@ -659,7 +670,8 @@
             "stars": 1159,
             "forks": 291,
             "repo": "benchflow-ai/skillsbench",
-            "paperDate": "2026-02"
+            "paperDate": "2026-02",
+            "createdAt": "2025-12-29"
           }
         },
         {
@@ -705,7 +717,8 @@
             "stars": 738,
             "forks": 72,
             "repo": "zjunlp/SkillNet",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-01-10"
           }
         },
         {
@@ -747,7 +760,8 @@
             "stars": 21,
             "forks": 1,
             "repo": "Zhang-Henry/CoEvoSkills",
-            "paperDate": "2026-04"
+            "paperDate": "2026-04",
+            "createdAt": "2026-04-11"
           }
         },
         {
@@ -854,7 +868,8 @@
           "metrics": {
             "stars": 6125,
             "forks": 759,
-            "repo": "HKUDS/OpenSpace"
+            "repo": "HKUDS/OpenSpace",
+            "createdAt": "2026-03-24"
           }
         },
         {
@@ -898,7 +913,8 @@
             "repo": "NousResearch/hermes-agent-self-evolution",
             "parentStars": 145764,
             "parentRepo": "NousResearch/hermes-agent",
-            "venue": "ICLR 2026"
+            "venue": "ICLR 2026",
+            "createdAt": "2026-03-09"
           }
         },
         {
@@ -940,7 +956,8 @@
             "stars": 1308,
             "forks": 126,
             "repo": "AMAP-ML/SkillClaw",
-            "paperDate": "2026-04"
+            "paperDate": "2026-04",
+            "createdAt": "2026-04-10"
           }
         },
         {
@@ -978,7 +995,8 @@
             "stars": 3373,
             "forks": 438,
             "repo": "aiming-lab/MetaClaw",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-03-09"
           }
         },
         {
@@ -1047,7 +1065,8 @@
             "stars": 730,
             "forks": 79,
             "repo": "sentient-agi/EvoSkill",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-03-04"
           }
         },
         {
@@ -1116,7 +1135,8 @@
             "stars": 720,
             "forks": 55,
             "repo": "aiming-lab/SkillRL",
-            "paperDate": "2026-02"
+            "paperDate": "2026-02",
+            "createdAt": "2026-02-08"
           }
         }
       ]
@@ -1161,7 +1181,8 @@
           "metrics": {
             "stars": 18093,
             "forks": 1465,
-            "repo": "vercel-labs/skills"
+            "repo": "vercel-labs/skills",
+            "createdAt": "2026-01-14"
           }
         },
         {
@@ -1207,7 +1228,8 @@
             "stars": 738,
             "forks": 72,
             "repo": "zjunlp/SkillNet",
-            "paperDate": "2026-03"
+            "paperDate": "2026-03",
+            "createdAt": "2026-01-10"
           }
         },
         {
@@ -1266,7 +1288,8 @@
               }
             ]
           },
-          "logo": "https://www.google.com/s2/favicons?domain=agentskills.io&sz=128"
+          "logo": "https://www.google.com/s2/favicons?domain=agentskills.io&sz=128",
+          "metrics": {}
         }
       ]
     }

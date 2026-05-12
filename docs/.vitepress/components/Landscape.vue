@@ -97,7 +97,8 @@ function allMetrics(tech) {
     })
   }
   if (m.venue) chips.push({ icon: '📄', text: m.venue, title: '发表 / 接收会议：' + m.venue })
-  if (m.paperDate) chips.push({ icon: '🗓', text: m.paperDate, title: 'arXiv 发布时间' })
+  if (m.paperDate) chips.push({ icon: '🗓', text: 'arXiv ' + m.paperDate, title: 'arXiv 发布时间' })
+  if (m.createdAt) chips.push({ icon: '⌛', text: '项目 ' + m.createdAt, title: 'GitHub 仓库创建时间' })
   return chips
 }
 
@@ -391,45 +392,63 @@ function allLinks(tech) {
 }
 
 .stage-section {
-  border-top: 3px solid var(--accent);
-  padding-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   min-width: 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
 }
 
 .stage-header {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 10px 12px;
+  background: #2c3e50;  /* CNCF-like dark slate header */
+  color: #fff;
 }
 
-.stage-icon { font-size: 22px; line-height: 1; }
+html.dark .stage-header {
+  background: #1a2733;
+}
+
+.stage-icon {
+  font-size: 18px;
+  line-height: 1;
+  filter: brightness(1.2);
+}
 
 .stage-title {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: baseline;
+  gap: 8px;
   min-width: 0;
+  flex: 1;
 }
 
 .stage-title h3 {
   margin: 0;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .stage-count {
   font-size: 11px;
-  color: var(--vp-c-text-2);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
+  padding: 10px;
 }
 
 @media (max-width: 480px) {
