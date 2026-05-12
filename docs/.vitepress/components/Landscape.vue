@@ -1,9 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
 import radarData from '../../assets/radar-data.json'
 
 const selected = ref(null)
 const filterText = ref('')
+const failedLogos = reactive({}) // id -> true if logo failed to load
 
 const stageIcons = {
   generation: '🏗️',
@@ -37,7 +38,7 @@ const totalCount = computed(() =>
   filtered.value.reduce((sum, c) => sum + c.technologies.length, 0)
 )
 
-function pickColor(name, fallback) {
+function pickColor(name) {
   let hash = 0
   for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) | 0
   const hue = Math.abs(hash) % 360
@@ -47,18 +48,26 @@ function pickColor(name, fallback) {
 function initials(name) {
   const clean = name.replace(/\(.+?\)/g, '').trim()
   const parts = clean.split(/[\s/\-_.]+/).filter(Boolean)
-  if (parts.length === 1) {
-    return parts[0].substring(0, 2).toUpperCase()
-  }
+  if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase()
   return (parts[0][0] + parts[1][0]).toUpperCase()
+}
+
+function showLogo(tech) {
+  return tech.logo && !failedLogos[tech.id]
+}
+
+function onLogoError(id) {
+  failedLogos[id] = true
 }
 
 function open(tech, cat) {
   selected.value = { ...tech, _category: cat }
+  document.body.style.overflow = 'hidden'
 }
 
 function close() {
   selected.value = null
+  document.body.style.overflow = ''
 }
 
 function overallScore(scores) {
@@ -112,11 +121,22 @@ function overallScore(scores) {
             class="tech-card"
             @click="open(tech, cat)"
           >
-            <div
-              class="logo-block"
-              :style="{ background: pickColor(tech.name, cat.color) }"
-            >
-              {{ initials(tech.name) }}
+            <div class="logo-wrap">
+              <img
+                v-if="showLogo(tech)"
+                :src="tech.logo"
+                :alt="tech.name + ' logo'"
+                class="logo-img"
+                loading="lazy"
+                @error="onLogoError(tech.id)"
+              />
+              <div
+                v-else
+                class="logo-block"
+                :style="{ background: pickColor(tech.name) }"
+              >
+                {{ initials(tech.name) }}
+              </div>
             </div>
             <div class="tech-name">{{ tech.name }}</div>
             <div class="tech-source">{{ tech.source }}</div>
@@ -131,46 +151,93 @@ function overallScore(scores) {
           <button class="modal-close" @click="close" aria-label="关闭">×</button>
 
           <div class="modal-head">
-            <div
-              class="logo-block large"
-              :style="{ background: pickColor(selected.name, selected._category.color) }"
-            >
-              {{ initials(selected.name) }}
+            <div class="logo-wrap large">
+              <img
+                v-if="showLogo(selected)"
+                :src="selected.logo"
+                :alt="selected.name + ' logo'"
+                class="logo-img"
+                @error="onLogoError(selected.id)"
+              />
+              <div
+                v-else
+                class="logo-block large"
+                :style="{ background: pickColor(selected.name) }"
+              >
+                {{ initials(selected.name) }}
+              </div>
             </div>
             <div class="modal-title">
               <h2>{{ selected.name }}</h2>
               <div class="modal-tags">
-                <span
-                  class="tag"
-                  :style="{ background: selected._category.color }"
-                >{{ selected._category.label }}</span>
+                <span class="tag" :style="{ background: selected._category.color }">
+                  {{ selected._category.label }}
+                </span>
                 <span class="tag-muted">{{ selected.source }}</span>
                 <span
                   v-if="overallScore(selected.scores)"
                   class="tag-muted"
                 >综合评分 {{ overallScore(selected.scores) }}</span>
               </div>
+              <p v-if="selected.detail?.tagline" class="modal-tagline">
+                {{ selected.detail.tagline }}
+              </p>
             </div>
           </div>
 
           <p class="modal-desc">{{ selected.description }}</p>
 
-          <div v-if="selected.scores" class="scores">
-            <div
-              v-for="(s, i) in selected.scores"
-              :key="i"
-              class="score-row"
-            >
-              <div class="score-label">{{ dimensions[i].label }}</div>
-              <div class="score-bar">
+          <section v-if="selected.detail?.principle" class="modal-section">
+            <h4>核心原理</h4>
+            <p>{{ selected.detail.principle }}</p>
+          </section>
+
+          <section v-if="selected.detail?.capabilities?.length" class="modal-section">
+            <h4>主要能力</h4>
+            <ul>
+              <li v-for="(c, i) in selected.detail.capabilities" :key="i">{{ c }}</li>
+            </ul>
+          </section>
+
+          <section v-if="selected.detail?.limitations?.length" class="modal-section">
+            <h4>局限性</h4>
+            <ul>
+              <li v-for="(l, i) in selected.detail.limitations" :key="i">{{ l }}</li>
+            </ul>
+          </section>
+
+          <section v-if="selected.scores" class="modal-section">
+            <h4>4 维成熟度评分</h4>
+            <div class="scores">
+              <div v-for="(s, i) in selected.scores" :key="i" class="score-row">
+                <div class="score-label">
+                  {{ dimensions[i].label }}
+                  <span class="score-value">{{ s.toFixed(2) }}</span>
+                </div>
+                <div class="score-bar">
+                  <div
+                    class="score-fill"
+                    :style="{ width: (s * 100) + '%', background: selected._category.color }"
+                  />
+                </div>
                 <div
-                  class="score-fill"
-                  :style="{ width: (s * 100) + '%', background: selected._category.color }"
-                />
+                  v-if="selected.detail?.scoreRationale?.[dimensions[i].key]"
+                  class="score-rationale"
+                >
+                  {{ selected.detail.scoreRationale[dimensions[i].key] }}
+                </div>
               </div>
-              <div class="score-value">{{ s.toFixed(2) }}</div>
             </div>
-          </div>
+          </section>
+
+          <section v-if="selected.detail?.references?.length" class="modal-section">
+            <h4>参考资料</h4>
+            <ul class="ref-list">
+              <li v-for="(r, i) in selected.detail.references" :key="i">
+                <a :href="r.url" target="_blank" rel="noopener">{{ r.label }} ↗</a>
+              </li>
+            </ul>
+          </section>
 
           <div class="modal-actions">
             <a
@@ -213,9 +280,7 @@ function overallScore(scores) {
   font-size: 13px;
 }
 
-.dim {
-  opacity: 0.45;
-}
+.dim { opacity: 0.45; }
 
 .landscape-search {
   padding: 8px 14px;
@@ -245,16 +310,9 @@ function overallScore(scores) {
   margin-bottom: 14px;
 }
 
-.stage-icon {
-  font-size: 26px;
-  line-height: 1;
-}
+.stage-icon { font-size: 26px; line-height: 1; }
 
-.stage-title h3 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 600;
-}
+.stage-title h3 { margin: 0; font-size: 17px; font-weight: 600; }
 
 .stage-meta {
   display: flex;
@@ -274,9 +332,7 @@ function overallScore(scores) {
   font-size: 11px;
 }
 
-.muted {
-  color: var(--vp-c-text-2);
-}
+.muted { color: var(--vp-c-text-2); }
 
 .cards {
   display: grid;
@@ -306,26 +362,46 @@ function overallScore(scores) {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.logo-block {
+.logo-wrap {
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--vp-c-divider);
+  flex-shrink: 0;
+}
+
+.logo-wrap.large {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.logo-block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.5px;
-  flex-shrink: 0;
 }
 
-.logo-block.large {
-  width: 72px;
-  height: 72px;
-  font-size: 22px;
-  border-radius: 14px;
-}
+.logo-wrap.large .logo-block { font-size: 22px; }
 
 .tech-name {
   font-weight: 600;
@@ -354,7 +430,7 @@ function overallScore(scores) {
 .modal-card {
   background: var(--vp-c-bg);
   border-radius: 14px;
-  max-width: 600px;
+  max-width: 680px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -376,27 +452,24 @@ function overallScore(scores) {
   padding: 4px 10px;
 }
 
-.modal-close:hover {
-  color: var(--vp-c-text-1);
-}
+.modal-close:hover { color: var(--vp-c-text-1); }
 
 .modal-head {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
-.modal-title h2 {
-  margin: 0 0 6px;
-  font-size: 22px;
-}
+.modal-title { flex: 1; }
+.modal-title h2 { margin: 0 0 6px; font-size: 22px; }
 
 .modal-tags {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 8px;
 }
 
 .tag {
@@ -417,54 +490,118 @@ function overallScore(scores) {
   font-size: 12px;
 }
 
+.modal-tagline {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
 .modal-desc {
   color: var(--vp-c-text-1);
   line-height: 1.6;
   margin: 0 0 20px;
+  padding: 12px 14px;
+  background: var(--vp-c-bg-soft);
+  border-radius: 8px;
+  font-size: 13.5px;
 }
+
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-section h4 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.modal-section p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--vp-c-text-1);
+  font-size: 13.5px;
+}
+
+.modal-section ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.7;
+  color: var(--vp-c-text-1);
+  font-size: 13.5px;
+}
+
+.modal-section ul li { margin-bottom: 4px; }
 
 .scores {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 14px;
 }
 
 .score-row {
-  display: grid;
-  grid-template-columns: 96px 1fr 40px;
-  align-items: center;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   font-size: 13px;
 }
 
 .score-label {
-  color: var(--vp-c-text-2);
+  display: flex;
+  justify-content: space-between;
+  color: var(--vp-c-text-1);
+  font-weight: 500;
 }
 
 .score-bar {
-  height: 8px;
+  height: 6px;
   background: var(--vp-c-bg-soft);
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .score-fill {
   height: 100%;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: width 0.3s;
 }
 
 .score-value {
-  text-align: right;
   font-variant-numeric: tabular-nums;
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-2);
+  font-weight: 600;
 }
+
+.score-rationale {
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+  margin-top: 2px;
+  padding-left: 2px;
+}
+
+.ref-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.ref-list li { margin-bottom: 6px; }
+.ref-list a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  font-size: 13px;
+}
+.ref-list a:hover { text-decoration: underline; }
 
 .modal-actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .btn {
@@ -480,9 +617,7 @@ function overallScore(scores) {
   cursor: pointer;
 }
 
-.btn:hover {
-  border-color: var(--vp-c-brand);
-}
+.btn:hover { border-color: var(--vp-c-brand); }
 
 .btn.primary {
   background: var(--vp-c-brand);
@@ -492,19 +627,11 @@ function overallScore(scores) {
 
 /* Modal transition */
 .modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.2s;
-}
+.modal-leave-active { transition: opacity 0.2s; }
 .modal-enter-active .modal-card,
-.modal-leave-active .modal-card {
-  transition: transform 0.2s;
-}
+.modal-leave-active .modal-card { transition: transform 0.2s; }
 .modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
+.modal-leave-to { opacity: 0; }
 .modal-enter-from .modal-card,
-.modal-leave-to .modal-card {
-  transform: scale(0.96) translateY(8px);
-}
+.modal-leave-to .modal-card { transform: scale(0.96) translateY(8px); }
 </style>

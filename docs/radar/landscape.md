@@ -1,5 +1,7 @@
 ---
 title: 技术全景图 (Landscape)
+layout: page
+sidebar: false
 aside: false
 ---
 
