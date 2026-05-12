@@ -67,26 +67,45 @@ function close() {
 // Decide an icon character for a reference link based on label/url
 function refIcon(ref) {
   const text = (ref.label + ' ' + ref.url).toLowerCase()
-  if (text.includes('github.com') || text.includes('github')) return '⌥'
   if (text.includes('arxiv.org') || text.includes('论文') || text.includes('paper')) return '📄'
+  if (text.includes('github.com') || text.includes('github')) return '⌥'
   if (text.includes('huggingface') || text.includes('blog') || text.includes('博客')) return '✎'
-  if (text.includes('文档') || text.includes('docs')) return '📖'
+  if (text.includes('文档') || text.includes('docs.') || text.includes('/docs/')) return '📖'
   return '🔗'
 }
 
-// Build a unified link list for modal header. Always include primary `link` first,
-// then `references` (de-dup against primary).
+// Infer a human label from a URL when one isn't provided
+function inferLabelFromUrl(url) {
+  try {
+    const u = new URL(url)
+    const host = u.host.replace(/^www\./, '')
+    if (host === 'arxiv.org') return 'arXiv 论文'
+    if (host === 'github.com') {
+      const parts = u.pathname.split('/').filter(Boolean)
+      if (parts.length >= 2) return `GitHub: ${parts[0]}/${parts[1]}`
+      return 'GitHub'
+    }
+    if (host === 'huggingface.co') return 'HuggingFace'
+    if (host.endsWith('.openkg.cn')) return host
+    return host
+  } catch {
+    return url
+  }
+}
+
+// Build a unified link list for modal header. References first (specific labels),
+// then primary `link` if not already in references (auto-labeled).
 function allLinks(tech) {
   const list = []
   const seen = new Set()
-  if (tech.link) {
-    list.push({ label: '主要链接', url: tech.link, isPrimary: true })
-    seen.add(tech.link)
-  }
   for (const r of (tech.detail?.references || [])) {
     if (!r.url || seen.has(r.url)) continue
     list.push({ label: r.label, url: r.url })
     seen.add(r.url)
+  }
+  if (tech.link && !seen.has(tech.link)) {
+    list.unshift({ label: inferLabelFromUrl(tech.link), url: tech.link })
+    seen.add(tech.link)
   }
   return list
 }
@@ -279,62 +298,82 @@ function allLinks(tech) {
 }
 
 .landscape-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1280px) {
+  .landscape-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .landscape-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .landscape-grid { grid-template-columns: 1fr; }
 }
 
 .stage-section {
-  border-left: 4px solid var(--accent);
-  padding-left: 16px;
+  border-top: 3px solid var(--accent);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
 }
 
 .stage-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 8px;
 }
 
-.stage-icon { font-size: 26px; line-height: 1; }
+.stage-icon { font-size: 22px; line-height: 1; }
 
 .stage-title {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
 .stage-title h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .stage-count {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--vp-c-text-2);
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .tech-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 14px 10px 12px;
+  gap: 6px;
+  padding: 10px 6px 8px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
   text-align: center;
   font-family: inherit;
   color: var(--vp-c-text-1);
+  width: 100%;
+  min-width: 0;
 }
 
 .tech-card:hover {
@@ -344,12 +383,12 @@ function allLinks(tech) {
 }
 
 .logo-wrap {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--vp-c-divider);
@@ -378,7 +417,7 @@ function allLinks(tech) {
   justify-content: center;
   color: #fff;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.5px;
 }
 
@@ -386,14 +425,26 @@ function allLinks(tech) {
 
 .tech-name {
   font-weight: 600;
-  font-size: 13px;
-  line-height: 1.3;
+  font-size: 12px;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .tech-source {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--vp-c-text-2);
-  line-height: 1.3;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* Modal */
