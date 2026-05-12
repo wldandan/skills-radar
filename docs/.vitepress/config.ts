@@ -13,7 +13,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: 'Skills Radar',
+    siteTitle: false,  // 不再用 navbar 的 site title，避免与组件内 brand 重复
 
     nav: [
       { text: 'Landscape', link: '/' },
