@@ -160,22 +160,17 @@ function allLinks(tech) {
 
 <template>
   <div class="landscape-root">
-    <div class="landscape-header">
-      <div class="landscape-stats">
-        <strong>Skills Radar</strong>
-        <span class="dim">·</span>
-        <span>{{ totalCount }} 个产品</span>
-        <span class="dim">·</span>
-        <span>6 大生命周期</span>
-        <span class="dim">·</span>
-        <span>点击卡片查看详情</span>
+    <header class="landscape-header">
+      <div class="brand">
+        <h1 class="brand-title">Skills Radar</h1>
+        <p class="brand-sub">{{ totalCount }} 个产品 · 6 大生命周期 · 点击卡片查看详情</p>
       </div>
       <input
         v-model="filterText"
         placeholder="按名称 / 描述 / 来源筛选..."
         class="landscape-search"
       />
-    </div>
+    </header>
 
     <div class="landscape-grid">
       <section
@@ -335,7 +330,7 @@ function allLinks(tech) {
 .landscape-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 28px;
@@ -343,18 +338,25 @@ function allLinks(tech) {
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
-.landscape-stats {
+.brand {
   display: flex;
-  gap: 10px;
-  align-items: center;
-  color: var(--vp-c-text-2);
-  font-size: 13px;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.landscape-stats strong {
-  color: var(--vp-c-text-1);
-  font-size: 16px;
+.brand-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
   letter-spacing: 0.3px;
+  color: var(--vp-c-text-1);
+  line-height: 1.15;
+}
+
+.brand-sub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
 }
 
 .dim { opacity: 0.45; }
