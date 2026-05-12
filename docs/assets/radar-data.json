@@ -122,7 +122,7 @@
               }
             ]
           },
-          "logo": "https://github.com/yusufkaraaslan.png?size=120"
+          "logo": "https://raw.githubusercontent.com/yusufkaraaslan/Skill_Seekers/main/docs/assets/logo.png"
         },
         {
           "id": "evoskill",
@@ -167,7 +167,7 @@
               }
             ]
           },
-          "logo": "https://github.com/sentient-agi.png?size=120"
+          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png"
         },
         {
           "id": "evoskills",
@@ -216,8 +216,7 @@
                 "url": "https://evoskills.net/"
               }
             ]
-          },
-          "logo": "https://github.com/Zhang-Henry.png?size=120"
+          }
         },
         {
           "id": "claudeception",
@@ -258,8 +257,7 @@
                 "url": "https://github.com/blader/Claudeception"
               }
             ]
-          },
-          "logo": "https://github.com/blader.png?size=120"
+          }
         },
         {
           "id": "trace2skill",
@@ -299,8 +297,7 @@
                 "url": "https://arxiv.org/abs/2603.25158"
               }
             ]
-          },
-          "logo": "https://github.com/QwenLM.png?size=120"
+          }
         },
         {
           "id": "skillforge-gen",
@@ -425,8 +422,7 @@
                 "url": "https://github.com/aiming-lab/SkillRL"
               }
             ]
-          },
-          "logo": "https://github.com/aiming-lab.png?size=120"
+          }
         }
       ]
     },
@@ -478,8 +474,7 @@
                 "url": "https://github.com/zhengyanzhao1997/SkillRouter"
               }
             ]
-          },
-          "logo": "https://github.com/zhengyanzhao1997.png?size=120"
+          }
         },
         {
           "id": "agentskillos-recall",
@@ -572,7 +567,7 @@
               }
             ]
           },
-          "logo": "https://github.com/zjunlp.png?size=120"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
         },
         {
           "id": "skillrouter-org",
@@ -669,7 +664,7 @@
               }
             ]
           },
-          "logo": "https://github.com/HKUDS.png?size=120"
+          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png"
         },
         {
           "id": "agentskillos-exec",
@@ -752,8 +747,7 @@
                 "url": "https://github.com/Memento-Teams/Memento-Skills"
               }
             ]
-          },
-          "logo": "https://github.com/Memento-Teams.png?size=120"
+          }
         },
         {
           "id": "skcc",
@@ -849,8 +843,7 @@
                 "url": "https://www.skillsbench.ai/"
               }
             ]
-          },
-          "logo": "https://github.com/benchflow-ai.png?size=120"
+          }
         },
         {
           "id": "skillnet-eval",
@@ -903,7 +896,7 @@
               }
             ]
           },
-          "logo": "https://github.com/zjunlp.png?size=120"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
         },
         {
           "id": "evoskills-eval",
@@ -952,8 +945,7 @@
                 "url": "https://evoskills.net/"
               }
             ]
-          },
-          "logo": "https://github.com/Zhang-Henry.png?size=120"
+          }
         },
         {
           "id": "skillforge-eval",
@@ -1087,7 +1079,7 @@
               }
             ]
           },
-          "logo": "https://github.com/HKUDS.png?size=120"
+          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png"
         },
         {
           "id": "hermes-self-evolution",
@@ -1136,8 +1128,7 @@
                 "url": "https://tokenmix.ai/blog/hermes-agent-review-self-improving-open-source-2026"
               }
             ]
-          },
-          "logo": "https://github.com/NousResearch.png?size=120"
+          }
         },
         {
           "id": "skillclaw",
@@ -1186,7 +1177,7 @@
               }
             ]
           },
-          "logo": "https://github.com/AMAP-ML.png?size=120"
+          "logo": "https://raw.githubusercontent.com/AMAP-ML/SkillClaw/main/assets/skillclaw_logo.png"
         },
         {
           "id": "metaclaw",
@@ -1231,7 +1222,7 @@
               }
             ]
           },
-          "logo": "https://github.com/aiming-lab.png?size=120"
+          "logo": "https://raw.githubusercontent.com/aiming-lab/MetaClaw/main/assets/new_logo2.png"
         },
         {
           "id": "skillreducer",
@@ -1317,7 +1308,7 @@
               }
             ]
           },
-          "logo": "https://github.com/sentient-agi.png?size=120"
+          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png"
         },
         {
           "id": "skillforge-opt",
@@ -1402,8 +1393,7 @@
                 "url": "https://github.com/aiming-lab/SkillRL"
               }
             ]
-          },
-          "logo": "https://github.com/aiming-lab.png?size=120"
+          }
         }
       ]
     },
@@ -1509,7 +1499,7 @@
               }
             ]
           },
-          "logo": "https://github.com/zjunlp.png?size=120"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
         },
         {
           "id": "agentskillos",
