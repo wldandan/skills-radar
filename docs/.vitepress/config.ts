@@ -17,6 +17,7 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
+      { text: '技术全景图', link: '/radar/landscape' },
       { text: '技术雷达', link: '/radar/radar-chart' },
       { text: '技术分类', link: '/radar/category-01-generation' },
       { text: 'GitHub', link: 'https://github.com/wldandan/skills-radar' },
@@ -27,6 +28,7 @@ export default defineConfig({
         {
           text: '技术雷达',
           items: [
+            { text: '技术全景图（Landscape）', link: '/radar/landscape' },
             { text: '技术分类体系', link: '/radar/01-taxonomy' },
             { text: '成熟度雷达图', link: '/radar/radar-chart' },
             { text: '代表项目调研', link: '/radar/02-projects' },
