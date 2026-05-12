@@ -1,0 +1,21 @@
+/* Make navbar span full width so its logo + site title align with the
+   Landscape grid's left edge (32px padding) instead of being centered in
+   a 1440px container. */
+.VPNav .container,
+.VPNavBar .container,
+.VPNavBar .wrapper,
+.VPNavBar .content-body {
+  max-width: 100% !important;
+}
+
+.VPNavBar > .wrapper > .container {
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+
+/* Slightly stronger site title visual weight */
+.VPNavBarTitle .title {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+}
