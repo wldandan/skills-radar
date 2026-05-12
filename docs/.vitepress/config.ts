@@ -16,6 +16,8 @@ export default defineConfig({
     siteTitle: 'Skills Radar',
 
     nav: [
+      { text: 'Landscape', link: '/' },
+      { text: 'Stats', link: '/stats' },
       { text: 'GitHub', link: 'https://github.com/wldandan/skills-radar' },
     ],
 

@@ -5,6 +5,7 @@ import radarData from '../../assets/radar-data.json'
 const selected = ref(null)
 const filterText = ref('')
 const failedLogos = reactive({})
+const viewMode = ref('grid')  // 'grid' | 'card'
 
 const stageIcons = {
   generation: '🏗️',
@@ -166,14 +167,28 @@ function allLinks(tech) {
         <h1 class="brand-title">Skills Radar</h1>
         <p class="brand-sub">{{ totalCount }} 个产品 · 6 大生命周期 · 点击卡片查看详情</p>
       </div>
-      <input
-        v-model="filterText"
-        placeholder="按名称 / 描述 / 来源筛选..."
-        class="landscape-search"
-      />
+      <div class="header-controls">
+        <div class="view-toggle" role="group" aria-label="切换视图">
+          <button
+            :class="{ active: viewMode === 'grid' }"
+            @click="viewMode = 'grid'"
+            title="网格视图：紧凑 logo"
+          >⊞ 网格</button>
+          <button
+            :class="{ active: viewMode === 'card' }"
+            @click="viewMode = 'card'"
+            title="卡片视图：每个产品含更多信息"
+          >▤ 卡片</button>
+        </div>
+        <input
+          v-model="filterText"
+          placeholder="按名称 / 描述 / 来源筛选..."
+          class="landscape-search"
+        />
+      </div>
     </header>
 
-    <div class="landscape-grid">
+    <div class="landscape-grid" :class="'view-' + viewMode">
       <section
         v-for="cat in filtered"
         :key="cat.id"
@@ -214,6 +229,7 @@ function allLinks(tech) {
             </div>
             <div class="tech-name">{{ tech.name }}</div>
             <div class="tech-source">{{ tech.source }}</div>
+            <div class="tech-tagline">{{ tech.description }}</div>
             <div
               v-if="cardMetric(tech)"
               class="card-metric"
@@ -362,6 +378,42 @@ function allLinks(tech) {
 
 .dim { opacity: 0.45; }
 
+.header-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
+}
+
+.view-toggle button {
+  background: transparent;
+  border: none;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.view-toggle button:hover {
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft);
+}
+
+.view-toggle button.active {
+  background: var(--vp-c-brand);
+  color: #fff;
+}
+
 .landscape-search {
   padding: 8px 14px;
   border: 1px solid var(--vp-c-divider);
@@ -374,22 +426,71 @@ function allLinks(tech) {
 
 .landscape-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
   align-items: start;
 }
 
+.landscape-grid.view-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 @media (max-width: 1280px) {
-  .landscape-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .landscape-grid.view-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
-  .landscape-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .landscape-grid.view-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 480px) {
-  .landscape-grid { grid-template-columns: 1fr; }
+  .landscape-grid.view-grid { grid-template-columns: 1fr; }
 }
+
+/* Card view: each stage occupies a full row, cards are wide info blocks */
+.landscape-grid.view-card {
+  grid-template-columns: 1fr;
+}
+
+.view-card .cards {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.view-card .tech-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  grid-template-areas:
+    "logo name"
+    "logo source"
+    "logo tagline"
+    "logo metric";
+  text-align: left;
+  padding: 12px;
+  gap: 2px 12px;
+  align-items: start;
+}
+
+.view-card .logo-wrap { grid-area: logo; width: 56px; height: 56px; }
+.view-card .tech-name { grid-area: name; font-size: 14px; line-height: 1.3; }
+.view-card .tech-source {
+  grid-area: source;
+  display: block !important;  /* override grid view hiding */
+  font-size: 11px;
+  color: var(--vp-c-text-2);
+  margin-bottom: 4px;
+}
+.view-card .tech-tagline {
+  grid-area: tagline;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--vp-c-text-1);
+  margin-top: 2px;
+}
+.view-card .card-metric { grid-area: metric; justify-self: start; margin-top: 6px; }
 
 .stage-section {
   display: flex;
@@ -534,7 +635,11 @@ html.dark .stage-header {
 }
 
 .tech-source {
-  display: none;  /* 在密集网格里太挤，省略源信息，留给 modal 展示 */
+  display: none;  /* 在密集网格里太挤；卡片视图下通过 .view-card 重启 */
+}
+
+.tech-tagline {
+  display: none;  /* 仅在 .view-card 模式下显示 */
 }
 
 .card-metric {
