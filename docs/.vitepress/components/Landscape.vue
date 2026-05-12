@@ -54,6 +54,53 @@ function onLogoError(id) {
   failedLogos[id] = true
 }
 
+function fmtNum(n) {
+  if (n == null) return null
+  if (n < 1000) return String(n)
+  if (n < 10000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return Math.round(n / 1000) + 'K'
+}
+
+// Top metric chip for the small card view (single most prominent metric).
+function cardMetric(tech) {
+  const m = tech.metrics
+  if (!m) return null
+  if (m.stars != null) return { icon: '⭐', text: fmtNum(m.stars), title: m.stars.toLocaleString() + ' GitHub stars' }
+  if (m.venue) return { icon: '📄', text: m.venue, title: m.venue }
+  if (m.paperDate) return { icon: '🗓', text: m.paperDate, title: 'arXiv ' + m.paperDate }
+  return null
+}
+
+// All metric chips for the modal header (every available one).
+function allMetrics(tech) {
+  const m = tech.metrics
+  if (!m) return []
+  const chips = []
+  if (m.stars != null) {
+    chips.push({
+      icon: '⭐', text: fmtNum(m.stars) + ' stars',
+      title: m.stars.toLocaleString() + (m.repo ? ' · ' + m.repo : ''),
+      href: m.repo ? 'https://github.com/' + m.repo : null,
+    })
+  }
+  if (m.forks != null) {
+    chips.push({
+      icon: '⑂', text: fmtNum(m.forks) + ' forks',
+      title: m.forks.toLocaleString() + ' forks',
+    })
+  }
+  if (m.parentStars != null) {
+    chips.push({
+      icon: '⭐', text: fmtNum(m.parentStars) + ' (parent)',
+      title: '父仓 ' + m.parentRepo + ' · ' + m.parentStars.toLocaleString() + ' stars',
+      href: m.parentRepo ? 'https://github.com/' + m.parentRepo : null,
+    })
+  }
+  if (m.venue) chips.push({ icon: '📄', text: m.venue, title: '发表 / 接收会议：' + m.venue })
+  if (m.paperDate) chips.push({ icon: '🗓', text: m.paperDate, title: 'arXiv 发布时间' })
+  return chips
+}
+
 function open(tech, cat) {
   selected.value = { ...tech, _category: cat }
   if (typeof document !== 'undefined') document.body.style.overflow = 'hidden'
@@ -171,6 +218,14 @@ function allLinks(tech) {
             </div>
             <div class="tech-name">{{ tech.name }}</div>
             <div class="tech-source">{{ tech.source }}</div>
+            <div
+              v-if="cardMetric(tech)"
+              class="card-metric"
+              :title="cardMetric(tech).title"
+            >
+              <span class="card-metric-icon">{{ cardMetric(tech).icon }}</span>
+              <span>{{ cardMetric(tech).text }}</span>
+            </div>
           </button>
         </div>
       </section>
@@ -210,6 +265,23 @@ function allLinks(tech) {
                 {{ selected.detail.tagline }}
               </p>
             </div>
+          </div>
+
+          <div v-if="allMetrics(selected).length" class="metrics-bar">
+            <component
+              v-for="(chip, i) in allMetrics(selected)"
+              :key="i"
+              :is="chip.href ? 'a' : 'span'"
+              :href="chip.href"
+              :target="chip.href ? '_blank' : null"
+              :rel="chip.href ? 'noopener' : null"
+              class="metric-chip"
+              :class="{ clickable: !!chip.href }"
+              :title="chip.title"
+            >
+              <span class="metric-icon">{{ chip.icon }}</span>
+              <span>{{ chip.text }}</span>
+            </component>
           </div>
 
           <div v-if="allLinks(selected).length" class="links-bar">
@@ -445,6 +517,65 @@ function allLinks(tech) {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.card-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-top: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.card-metric-icon {
+  font-size: 10px;
+  filter: saturate(1.2);
+}
+
+/* Metrics bar in modal */
+.metrics-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-1);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.metric-chip.clickable {
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s;
+}
+
+.metric-chip.clickable:hover {
+  border-color: var(--vp-c-brand);
+  transform: translateY(-1px);
+}
+
+.metric-icon {
+  font-size: 13px;
 }
 
 /* Modal */

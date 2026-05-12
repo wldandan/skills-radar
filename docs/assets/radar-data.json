@@ -3,7 +3,8 @@
     "version": "2.1.0",
     "created": "2026-05-12",
     "source": "Skills Radar - 业界真实产品视图（基于 Skill-insight 全生命周期管理方法论）",
-    "note": "本版本只收录有公开论文 / 开源仓库 / 产品页可验证的业界真实方案。所有数据经过两轮事实校验。"
+    "note": "本版本只收录有公开论文 / 开源仓库 / 产品页可验证的业界真实方案。所有数据经过两轮事实校验。",
+    "metricsUpdatedAt": "2026-05-12"
   },
   "categories": [
     {
@@ -70,7 +71,12 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/yusufkaraaslan/Skill_Seekers/main/docs/assets/logo.png"
+          "logo": "https://raw.githubusercontent.com/yusufkaraaslan/Skill_Seekers/main/docs/assets/logo.png",
+          "metrics": {
+            "stars": 13449,
+            "forks": 1389,
+            "repo": "yusufkaraaslan/Skill_Seekers"
+          }
         },
         {
           "id": "evoskill",
@@ -102,7 +108,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png"
+          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png",
+          "metrics": {
+            "stars": 730,
+            "forks": 79,
+            "repo": "sentient-agi/EvoSkill",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "evoskills",
@@ -138,6 +150,12 @@
                 "url": "https://evoskills.net/"
               }
             ]
+          },
+          "metrics": {
+            "stars": 21,
+            "forks": 1,
+            "repo": "Zhang-Henry/CoEvoSkills",
+            "paperDate": "2026-04"
           }
         },
         {
@@ -166,6 +184,11 @@
                 "url": "https://github.com/blader/Claudeception"
               }
             ]
+          },
+          "metrics": {
+            "stars": 2322,
+            "forks": 22,
+            "repo": "blader/Claudeception"
           }
         },
         {
@@ -193,6 +216,9 @@
                 "url": "https://arxiv.org/abs/2603.25158"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-03"
           }
         },
         {
@@ -221,6 +247,10 @@
                 "url": "https://arxiv.org/abs/2604.08618"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-04",
+            "venue": "SIGIR 2026"
           }
         },
         {
@@ -248,6 +278,9 @@
                 "url": "https://arxiv.org/abs/2604.04804"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-04"
           }
         },
         {
@@ -279,6 +312,12 @@
                 "url": "https://github.com/aiming-lab/SkillRL"
               }
             ]
+          },
+          "metrics": {
+            "stars": 720,
+            "forks": 55,
+            "repo": "aiming-lab/SkillRL",
+            "paperDate": "2026-02"
           }
         }
       ]
@@ -318,6 +357,12 @@
                 "url": "https://github.com/zhengyanzhao1997/SkillRouter"
               }
             ]
+          },
+          "metrics": {
+            "stars": 107,
+            "forks": 7,
+            "repo": "zhengyanzhao1997/SkillRouter",
+            "paperDate": "2026-03"
           }
         },
         {
@@ -345,6 +390,9 @@
                 "url": "https://arxiv.org/abs/2603.02176"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-03"
           }
         },
         {
@@ -385,7 +433,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png",
+          "metrics": {
+            "stars": 738,
+            "forks": 72,
+            "repo": "zjunlp/SkillNet",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "skillrouter-org",
@@ -456,7 +510,12 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png"
+          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png",
+          "metrics": {
+            "stars": 6125,
+            "forks": 759,
+            "repo": "HKUDS/OpenSpace"
+          }
         },
         {
           "id": "agentskillos-exec",
@@ -483,6 +542,9 @@
                 "url": "https://arxiv.org/abs/2603.02176"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-03"
           }
         },
         {
@@ -513,6 +575,12 @@
                 "url": "https://github.com/Memento-Teams/Memento-Skills"
               }
             ]
+          },
+          "metrics": {
+            "stars": 1367,
+            "forks": 154,
+            "repo": "Memento-Teams/Memento-Skills",
+            "paperDate": "2026-03"
           }
         },
         {
@@ -540,6 +608,9 @@
                 "url": "https://arxiv.org/abs/2605.03353"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-05"
           }
         }
       ]
@@ -583,6 +654,12 @@
                 "url": "https://www.skillsbench.ai/"
               }
             ]
+          },
+          "metrics": {
+            "stars": 1159,
+            "forks": 291,
+            "repo": "benchflow-ai/skillsbench",
+            "paperDate": "2026-02"
           }
         },
         {
@@ -623,7 +700,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png",
+          "metrics": {
+            "stars": 738,
+            "forks": 72,
+            "repo": "zjunlp/SkillNet",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "evoskills-eval",
@@ -659,6 +742,12 @@
                 "url": "https://evoskills.net/"
               }
             ]
+          },
+          "metrics": {
+            "stars": 21,
+            "forks": 1,
+            "repo": "Zhang-Henry/CoEvoSkills",
+            "paperDate": "2026-04"
           }
         },
         {
@@ -687,6 +776,10 @@
                 "url": "https://arxiv.org/abs/2604.08618"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-04",
+            "venue": "SIGIR 2026"
           }
         },
         {
@@ -714,6 +807,9 @@
                 "url": "https://arxiv.org/abs/2605.05726"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-05"
           }
         }
       ]
@@ -754,7 +850,12 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png"
+          "logo": "https://raw.githubusercontent.com/HKUDS/OpenSpace/main/assets/logo.png",
+          "metrics": {
+            "stars": 6125,
+            "forks": 759,
+            "repo": "HKUDS/OpenSpace"
+          }
         },
         {
           "id": "hermes-self-evolution",
@@ -790,6 +891,14 @@
                 "url": "https://tokenmix.ai/blog/hermes-agent-review-self-improving-open-source-2026"
               }
             ]
+          },
+          "metrics": {
+            "stars": 3068,
+            "forks": 332,
+            "repo": "NousResearch/hermes-agent-self-evolution",
+            "parentStars": 145764,
+            "parentRepo": "NousResearch/hermes-agent",
+            "venue": "ICLR 2026"
           }
         },
         {
@@ -826,7 +935,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/AMAP-ML/SkillClaw/main/assets/skillclaw_logo.png"
+          "logo": "https://raw.githubusercontent.com/AMAP-ML/SkillClaw/main/assets/skillclaw_logo.png",
+          "metrics": {
+            "stars": 1308,
+            "forks": 126,
+            "repo": "AMAP-ML/SkillClaw",
+            "paperDate": "2026-04"
+          }
         },
         {
           "id": "metaclaw",
@@ -858,7 +973,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/aiming-lab/MetaClaw/main/assets/new_logo2.png"
+          "logo": "https://raw.githubusercontent.com/aiming-lab/MetaClaw/main/assets/new_logo2.png",
+          "metrics": {
+            "stars": 3373,
+            "forks": 438,
+            "repo": "aiming-lab/MetaClaw",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "skillreducer",
@@ -886,6 +1007,9 @@
                 "url": "https://arxiv.org/abs/2603.29919"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-03"
           }
         },
         {
@@ -918,7 +1042,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png"
+          "logo": "https://raw.githubusercontent.com/sentient-agi/EvoSkill/main/assets/evoskill_logo.png",
+          "metrics": {
+            "stars": 730,
+            "forks": 79,
+            "repo": "sentient-agi/EvoSkill",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "skillforge-opt",
@@ -946,6 +1076,10 @@
                 "url": "https://arxiv.org/abs/2604.08618"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-04",
+            "venue": "SIGIR 2026"
           }
         },
         {
@@ -977,6 +1111,12 @@
                 "url": "https://github.com/aiming-lab/SkillRL"
               }
             ]
+          },
+          "metrics": {
+            "stars": 720,
+            "forks": 55,
+            "repo": "aiming-lab/SkillRL",
+            "paperDate": "2026-02"
           }
         }
       ]
@@ -1017,7 +1157,12 @@
               }
             ]
           },
-          "logo": "https://www.google.com/s2/favicons?domain=skills.sh&sz=128"
+          "logo": "https://www.google.com/s2/favicons?domain=skills.sh&sz=128",
+          "metrics": {
+            "stars": 18093,
+            "forks": 1465,
+            "repo": "vercel-labs/skills"
+          }
         },
         {
           "id": "skillnet",
@@ -1057,7 +1202,13 @@
               }
             ]
           },
-          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png"
+          "logo": "https://raw.githubusercontent.com/zjunlp/SkillNet/main/images/skillnet.png",
+          "metrics": {
+            "stars": 738,
+            "forks": 72,
+            "repo": "zjunlp/SkillNet",
+            "paperDate": "2026-03"
+          }
         },
         {
           "id": "agentskillos",
@@ -1084,6 +1235,9 @@
                 "url": "https://arxiv.org/abs/2603.02176"
               }
             ]
+          },
+          "metrics": {
+            "paperDate": "2026-03"
           }
         },
         {
