@@ -163,11 +163,12 @@ function allLinks(tech) {
 <template>
   <div class="landscape-root">
     <header class="landscape-header">
-      <div class="brand">
-        <h1 class="brand-title">Skills Radar</h1>
-        <p class="brand-sub">{{ totalCount }} 个产品 · 6 大生命周期 · 点击卡片查看详情</p>
-      </div>
       <div class="header-controls">
+        <input
+          v-model="filterText"
+          placeholder="筛选名称 / 描述 / 来源..."
+          class="landscape-search"
+        />
         <div class="view-toggle" role="group" aria-label="切换视图">
           <button
             :class="{ active: viewMode === 'grid' }"
@@ -180,11 +181,9 @@ function allLinks(tech) {
             title="卡片视图：每个产品含更多信息"
           >▤ 卡片</button>
         </div>
-        <input
-          v-model="filterText"
-          placeholder="按名称 / 描述 / 来源筛选..."
-          class="landscape-search"
-        />
+      </div>
+      <div class="stats-label">
+        {{ totalCount }} 个产品 · 6 大生命周期 · 点击卡片查看详情
       </div>
     </header>
 
@@ -347,32 +346,16 @@ function allLinks(tech) {
 .landscape-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 28px;
-  padding-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.brand-title {
-  margin: 0;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  color: var(--vp-c-text-1);
-  line-height: 1.15;
-}
-
-.brand-sub {
-  margin: 0;
-  font-size: 13px;
+.stats-label {
+  font-size: 12.5px;
   color: var(--vp-c-text-2);
 }
 
@@ -380,7 +363,7 @@ function allLinks(tech) {
 
 .header-controls {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
   flex-wrap: wrap;
 }
