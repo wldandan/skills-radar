@@ -278,15 +278,6 @@
           "status": "active"
         },
         {
-          "id": "ace",
-          "name": "ACE (Agentic Context Engineering)",
-          "description": "Stanford 等：把 context 当作演化的 playbook，生成 / 反思 / 策展三阶段（+10.6% 智能体 / +8.6% 金融）",
-          "source": "Stanford 等 (ICLR 2026)",
-          "link": "https://arxiv.org/abs/2510.04618",
-          "scores": [0.65, 0.85, 0.50, 0.65],
-          "status": "active"
-        },
-        {
           "id": "hermes-self-evolution",
           "name": "Hermes Self-Evolution",
           "description": "GEPA 优化器 + 严格约束门控 + PR 模式人工审核（父仓 hermes-agent 145K+ ★）",
@@ -409,9 +400,9 @@
       "id": "optimization",
       "label": "Skill 优化",
       "maturityLevel": "growing",
-      "overallScore": 0.60,
-      "status": "🟢 成熟期（边界）",
-      "judgement": "八个进化框架 + ACE context engineering（ICLR 2026）+ SkillReducer Token 优化，技术路径最丰富。但各自为政缺标准，且没有任何进化框架在循环中加入安全扫描。"
+      "overallScore": 0.59,
+      "status": "🟡 成长期",
+      "judgement": "八个进化框架 + SkillReducer Token 优化，技术路径最丰富。但各自为政缺标准，且没有任何进化框架在循环中加入安全扫描。"
     },
     {
       "id": "generation",

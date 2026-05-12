@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Skills Radar',
-  description: '基于 skill-insight 全生命周期管理方法论 · Agent Skill 业界真实方案地图（24 个公开可验证的产品 / 6 大生命周期）',
+  description: '基于 skill-insight 全生命周期管理方法论 · Agent Skill 业界真实方案地图（23 个公开可验证的产品 / 6 大生命周期）',
   base: '/skills-radar/',
   ignoreDeadLinks: true,
 
@@ -84,7 +84,6 @@ export default defineConfig({
           items: [
             { text: 'SkillsBench', link: '/radar/tech-skillsbench' },
             { text: 'SkillRet', link: '/radar/tech-skillret' },
-            { text: 'ACE (Agentic Context Engineering)', link: '/radar/tech-ace' },
             { text: 'Hermes Self-Evolution', link: '/radar/tech-hermes-self-evolution' },
             { text: 'SkillClaw', link: '/radar/tech-skillclaw' },
             { text: 'MetaClaw', link: '/radar/tech-metaclaw' },

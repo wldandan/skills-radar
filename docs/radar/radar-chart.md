@@ -32,7 +32,7 @@ import RadarChart from '../.vitepress/components/RadarChart.vue'
 | 阶段 | 综合 | 等级 | 业界判断 |
 |---|:---:|:---:|---|
 | [Skill 召回](category-02-recall) | **0.65** | 🟢 | SkillRouter 工程化、AgentSkillOS DAG 编排，基础问题已解 |
-| [Skill 优化](category-05-optimization) | **0.60** | 🟢 | 8 个进化框架 + ACE（ICLR 2026）context engineering，路径最丰富但缺安全扫描 |
+| [Skill 优化](category-05-optimization) | **0.59** | 🟡 | 8 个进化框架（含 SkillRL）+ SkillReducer Token 优化，路径最丰富但缺安全扫描 |
 | [Skill 生成](category-01-generation) | **0.55** | 🟡 | 最拥挤赛道，9 条路径但各有局限 |
 | [Skill 评测](category-04-evaluation) | **0.47** | 🟡 | SkillRet 补齐召回 benchmark，但**过程评测和多 Skill 归因仍空白** |
 | [Skill 执行](category-03-execution) | **0.45** | 🟡 | SkCC 填补跨框架可移植性，但 16/84 负增益、跨领域差异 10× 仍无方案 |

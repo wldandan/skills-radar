@@ -69,12 +69,6 @@
 | [2605.03353](https://arxiv.org/abs/2605.03353) | [SkCC](tech-skcc) ★ | 执行 — SkIR 强类型 IR，跨框架可移植性 |
 | [2605.05726](https://arxiv.org/abs/2605.05726) | [SkillRet](tech-skillret) ★ | 召回 / 评测 — Skill 检索大规模 benchmark（17,810 Skill）|
 
-### 跨年度（2025-10）
-
-| 编号 | 项目 | 类型 |
-|---|---|---|
-| [2510.04618](https://arxiv.org/abs/2510.04618) | [ACE - Agentic Context Engineering](tech-ace) ★ | 优化 / 生成 — Stanford 等，ICLR 2026 接收 |
-
 ---
 
 ## 三、非论文事件
@@ -101,7 +95,7 @@
 
 ### 4.2 优化赛道：进化框架密集涌现
 
-2026 年 Q1 一个季度内出现 8 个进化框架（OpenSpace / Hermes / SkillClaw / MetaClaw / EvoSkill / SkillForge / Trace2Skill / SkillRL），叠加 2025-10 Stanford 提出的 ACE context engineering（ICLR 2026 接收）—— 按"进化信号从哪来"分化为多条路径，但都在走向"执行 → 分析 → 进化 → 验证 → 部署"的闭环，**正在趋同**。
+2026 年 Q1 一个季度内出现 8 个进化框架（OpenSpace / Hermes / SkillClaw / MetaClaw / EvoSkill / SkillForge / Trace2Skill / SkillRL），按"进化信号从哪来"分化为多条路径，但都在走向"执行 → 分析 → 进化 → 验证 → 部署"的闭环，**正在趋同**。
 
 ### 4.3 评测 / 管理赛道：被点名但无方案
 
@@ -115,6 +109,6 @@
 
 ## 五、参考资料
 
-- [全部 24 个真实产品](02-projects)
+- [全部 23 个真实产品](02-projects)
 - 每个产品的论文 / 仓库链接见各 [tech-*.md 详情页](../)
 - 行业判断依据：Skill-insight 竞品分析文档（内部，2026-05）

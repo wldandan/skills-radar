@@ -2,9 +2,9 @@
 
 > **版本**: v2.1 · **更新日期**: 2026-05-12
 >
-> 本表列出业界 **24 个**有公开论文 / 仓库 / 产品页可验证的真实方案。所有条目均不是占位，所有数字均经过两轮事实核查。
+> 本表列出业界 **23 个**有公开论文 / 仓库 / 产品页可验证的真实方案。所有条目均不是占位，所有数字均经过两轮事实核查。
 >
-> ★ = 2026-05 调研新增条目（ACE / SkillRL / SkillRet / SkCC / Vercel skills.sh）
+> ★ = 2026-05 调研新增条目（SkillRL / SkillRet / SkCC / Vercel skills.sh）
 
 ---
 
@@ -63,7 +63,6 @@
 | 项目 / 论文 | 来源 | 核心技术 | 链接 |
 |---|---|---|---|
 | **OpenSpace** | HKU (**6.1K+ ★**) | FIX / DERIVED / CAPTURED 三模式实时进化 | [GitHub](https://github.com/HKUDS/OpenSpace) · [详情](tech-openspace) |
-| **ACE** ★ | Stanford 等 (ICLR 2026) | Generation / Reflection / Curation 三阶段 context engineering | [论文](https://arxiv.org/abs/2510.04618) · [详情](tech-ace) |
 | **Hermes Self-Evolution** | Nous Research (3.1K+ ★) | GEPA 优化器（ICLR 2026 接收）+ PR 模式人工审核 | [GitHub](https://github.com/NousResearch/hermes-agent-self-evolution) · [详情](tech-hermes-self-evolution) |
 | **SkillClaw** | AMAP-ML (1.3K+ ★) | 后台守护进程聚合多用户轨迹进化 Skill | [论文](https://arxiv.org/abs/2604.08377) · [GitHub](https://github.com/AMAP-ML/SkillClaw) · [详情](tech-skillclaw) |
 | **MetaClaw** | OpenClaw (3.4K+ ★) | Fast Loop（秒级）+ Slow Loop（小时级）双环 | [论文](https://arxiv.org/abs/2603.17187) · [GitHub](https://github.com/aiming-lab/MetaClaw) · [详情](tech-metaclaw) |

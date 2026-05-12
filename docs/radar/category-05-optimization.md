@@ -1,8 +1,8 @@
 # Skill 优化（Optimization）
 
-> **成熟度**: 🟢 成熟期（边界） · **综合评分**: **0.60**
+> **成熟度**: 🟡 成长期 · **综合评分**: **0.59**
 >
-> **业界判断**：**8 个进化框架 + ACE（ICLR 2026 接收的 Stanford context engineering）+ SkillReducer Token 优化**，**技术路径最丰富**，但各自为政缺标准。**没有任何进化框架在循环中加入安全扫描**。
+> **业界判断**：**8 个进化框架（含 SkillRL）+ SkillReducer Token 优化**，**技术路径最丰富**，但各自为政缺标准。**没有任何进化框架在循环中加入安全扫描**。
 
 ---
 
@@ -11,7 +11,6 @@
 | 产品 | 来源 | 进化信号 | 关键数字 |
 |---|---|---|---|
 | [OpenSpace](tech-openspace) | HKU (**6.1K+ ★**) | FIX / DERIVED / CAPTURED 三模式 | 220 任务 40.8% → 70.8%, Token -46% |
-| **[ACE](tech-ace)** ★ | Stanford 等 (ICLR 2026) | Generation / Reflection / Curation 三阶段 | **+10.6% 智能体 / +8.6% 金融** |
 | [Hermes Self-Evolution](tech-hermes-self-evolution) | Nous Research (3.1K+ ★) | GEPA 优化器 + PR 审核 | ICLR 2026 接收 |
 | [SkillClaw](tech-skillclaw) | AMAP-ML (1.3K+ ★) | 多用户轨迹聚合 | Qwen3-Max 验证 |
 | [MetaClaw](tech-metaclaw) | OpenClaw (3.4K+ ★) | Fast Loop + Slow Loop 双环 | Kimi-K2.5 21.4% → 40.6% |
@@ -33,7 +32,6 @@
 | 双环架构（Skill + 权重） | MetaClaw | 零停机 + 同时进化 | 绑定 OpenClaw + 需模型权限 |
 | DSPy + GEPA 优化 | Hermes | 理解"为什么失败" | 绑定 Hermes + PR 需人审 |
 | 三模式实时进化 | OpenSpace | 覆盖最广 | 长期稳定性未验证 |
-| **Context as Playbook** ★ | ACE (ICLR 2026) | 生成 / 反思 / 策展，无需标注 | 需类比迁移到 Skill 场景 |
 | **RL 共进化** ★ | SkillRL | Skill 库与策略一起学习 | 需要可定义 reward |
 
 ---

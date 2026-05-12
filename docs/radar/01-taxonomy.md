@@ -26,7 +26,7 @@ title: Skills 技术分类体系
 | 阶段 | 成熟度 | 综合评分 | 代表产品 |
 |---|---|:---:|---|
 | [Skill 召回](category-02-recall) | 🟢 成熟期 | **0.65** | SkillRouter · AgentSkillOS · SkillNet |
-| [Skill 优化](category-05-optimization) | 🟢 成熟期（边界） | **0.60** | OpenSpace · **ACE** · Hermes · SkillClaw · MetaClaw |
+| [Skill 优化](category-05-optimization) | 🟡 成长期 | **0.59** | OpenSpace · Hermes · SkillClaw · MetaClaw · SkillRL |
 | [Skill 生成](category-01-generation) | 🟡 成长期 | **0.55** | Skill Creator · Skill Seekers · EvoSkills · Trace2Skill · **SkillRL** |
 | [Skill 评测](category-04-evaluation) | 🟡 成长期 | **0.47** | SkillsBench · SkillNet · EvoSkills · **SkillRet** · SkillForge |
 | [Skill 执行](category-03-execution) | 🟡 成长期 | **0.45** | OpenSpace · AgentSkillOS · Memento-Skills · **SkCC** |
