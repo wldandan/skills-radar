@@ -1,203 +1,99 @@
 # Skills 技术演进时间线
 
-> **版本**: v1.0.0
-> **创建日期**: 2026-05-10
-> **Story**: R-005
-> **状态**: 初稿
+> **版本**: v2.0 · **更新日期**: 2026-05-12
+>
+> 本时间线只收录有公开论文 / 仓库 / 产品页可验证的事件。论文以 arXiv 编号年月为准（如 2603 = 2026 年 3 月）。
 
 ---
 
-## 一、技术演进总览
+## 一、三个时代的过渡
 
 ```
-2023                    2024                          2025                                 2026
- │                       │                              │                                    │
- ├─ API 插件时代 ────────┤                              │                                    │
- │                       ├─ MCP 协议 ──────────────────┤                                    │
- │                       │                              ├─ Skills 标准诞生 ─────────────────┤
- │                       │                              │                                    │
- │                       │    ┌────────────────────────┴────────────────────────┐           │
- │                       │    │                                                 │           │
- │                       │    ├─ Skill 生成      ████████████░░░  🟡 成长期     │           │
- │                       │    ├─ Skill 召回      ██████████████████  🟢 成熟期  │           │
- │                       │    ├─ Skill 执行      █████████████░░░  🟡 成长期   │           │
- │                       │    ├─ Skill 评测      ██████████████████  🟢 成熟期│           │
- │                       │    ├─ Skill 优化      ████████████░░░░  🟡 成长期  │           │
- │                       │    └─ Skill 管理      ████████░░░░░░░░  🔴 探索期  │           │
- │                       │                              │                                    │
+2023               2024                    2025                          2026
+ │                  │                       │                             │
+ ├─ API 插件时代 ───┤                       │                             │
+ │   ChatGPT        ├─ MCP 协议时代 ───────┤                             │
+ │   Plugins        │   Anthropic MCP       ├─ Skills 时代 ──────────────┤
+ │                  │                       │   生成 / 召回 / 评测密集涌现│
+ │                  │                       │                             │
 ```
 
 ---
 
-## 二、关键里程碑
+## 二、2026 年关键论文与产品
 
-### 2023 年：API 插件时代
+以 arXiv 编号为序（编号 2601 → 2604 对应 2026 年 1 - 4 月）：
 
-| 时间 | 事件 | 影响 |
-|------|------|------|
-| 2023.03 | ChatGPT Plugins 发布 | 开创了 LLM 工具调用的插件范式 |
-| 2023.05 | OpenAPI Schema 成为标准 | 统一了插件接口描述格式 |
-| 2023.08 | 中心化审核机制建立 | 安全性有保障但灵活性不足 |
+### 2026 年 1 月
 
-**技术局限**：需要服务代码、中心化审核、非技术人员难以封装复杂工作流。
+| 编号 | 项目 | 类型 |
+|---|---|---|
+| [2601.10338](https://arxiv.org/abs/2601.10338) | Liu et al. *Agent Skills in the Wild: Security Vulnerabilities at Scale* | 安全研究 — 揭示 26.1% 社区 Skill 含漏洞 |
 
----
+### 2026 年 2 月
 
-### 2024 年：MCP 协议时代
+| 编号 | 项目 | 类型 |
+|---|---|---|
+| [2602.12430](https://arxiv.org/abs/2602.12430) | Xu & Yan. *Agent Skills for LLMs: Architecture, Acquisition, Security* | 综述 — 76.3% 安全问题需跨模态检测 |
+| [2602.12670](https://arxiv.org/abs/2602.12670) | [SkillsBench](tech-skillsbench) | 评测基准 — 7,308 轨迹 / 84 任务 / 11 领域 |
 
-| 时间 | 事件 | 影响 |
-|------|------|------|
-| 2024.02 | Anthropic 发布 MCP 协议 | 统一了工具调用协议，解决 M×N 集成难题 |
-| 2024.06 | 支持本地运行和远程部署 | 灵活性大幅提升 |
-| 2024.09 | 开发者自由发布机制 | 去中心化审核，社区活跃 |
+### 2026 年 3 月
 
-**技术突破**：类型化接口、安全沙箱、自由发布。但仍需写服务代码，非技术人员门槛较高。
+| 编号 | 项目 | 类型 |
+|---|---|---|
+| [2603.02176](https://arxiv.org/abs/2603.02176) | [AgentSkillOS](tech-agentskillos) | 召回 / 执行 / 管理 — Capability Tree + DAG |
+| [2603.02766](https://arxiv.org/abs/2603.02766) | [EvoSkill](tech-evoskill) | 生成 — 三 Agent 协作 + Pareto |
+| [2603.04448](https://arxiv.org/abs/2603.04448) | [SkillNet](tech-skillnet) | 召回 / 评测 / 管理 — 40 万 Skill 仓库 |
+| [2603.17187](https://arxiv.org/abs/2603.17187) | [MetaClaw](tech-metaclaw) | 优化 — 双环架构 |
+| [2603.18743](https://arxiv.org/abs/2603.18743) | [Memento-Skills](tech-memento-skills) | 执行 / 召回 — 闭环 + 行为可训练 Router |
+| [2603.22455](https://arxiv.org/abs/2603.22455) | [SkillRouter](tech-skillrouter) | 召回 — 80K 池 74% Hit@1 |
+| [2603.25158](https://arxiv.org/abs/2603.25158) | [Trace2Skill](tech-trace2skill) | 生成 — 并行轨迹蒸馏 |
+| [2603.29919](https://arxiv.org/abs/2603.29919) | [SkillReducer](tech-skillreducer) | 优化 — less-is-more 大规模实证 |
 
----
+### 2026 年 4 月
 
-### 2025 年：Skill 时代
-
-| 时间 | 事件 | 影响 |
-|------|------|------|
-| 2025.01 | Anthropic Claude Skills 发布 | 开创第三代能力扩展，一句话生成 Skill |
-| 2025.03 | Vercel skills.sh 上线 | 一键安装 Skills，生态爆发 |
-| 2025.06 | Skill 市场达 11.8 万个 | Skills 成为 AI 时代的"新 App" |
-| 2025.09 | Skill-insight 发布 | 多维评测、执行追踪、归因分析能力落地 |
-| 2025.11 | 浙江大学 Graph of Skills | 千级规模 Skill 库的结构感知检索 |
-| 2025.12 | Anthropic Skill Creator 2.0 | 人机协作持续优化，Agent 自主生成 Skill |
-
-**技术突破**：
-- 自然语言定义 Skill，非技术人员可上手
-- 渐进式披露控制 Token 消耗
-- 生态爆发式增长
+| 编号 | 项目 | 类型 |
+|---|---|---|
+| [2604.01687](https://arxiv.org/abs/2604.01687) | [EvoSkills / CoEvoSkills](tech-evoskills) | 生成 / 评测 — Surrogate + Oracle 协同进化 |
+| [2604.04804](https://arxiv.org/abs/2604.04804) | [SkillX](tech-skillx) | 生成 — 三层粒度蒸馏 |
+| [2604.08377](https://arxiv.org/abs/2604.08377) | [SkillClaw](tech-skillclaw) | 优化 / 管理 — 多用户轨迹聚合 |
+| [2604.08618](https://arxiv.org/abs/2604.08618) | [SkillForge](tech-skillforge) | 生成 / 优化 / 评测 — 阿里云工单 |
 
 ---
 
-### 2026 年（进行中）：Skill 技术深化
+## 三、非论文事件
 
-| 时间 | 事件 | 影响 |
-|------|------|------|
-| 2026.01 | Skill 自进化研究火热 | SKILLRL、Memento-Skills 等论文发表 |
-| 2026.02 | 标准化进程加速 | 跨平台 Skill 可移植性成为焦点 |
-| 2026.03 | 企业级 SkillForge | 让企业级 Agent Skills 实现自主进化 |
-| 2026.04 | skill-insight 成熟 | 多维评测体系完整，支持 OpenCode/Claude Code |
-
----
-
-## 三、各阶段技术演进详解
-
-### 3.1 Skill 生成技术演进
-
-```
-2024            2025                  2026
- │              │                     │
- ├─ 文档解析 ────┼──────────────────────┤
- │              ├─ 语义聚合 ───────────┤
- │              ├─ 自生成 ────────────┤
- │              │                     │
- │    Trace2Skill (2025.03)           │
- │    D2Skill (2025.06)               │
- │    Memento-Skills (2026.01)        │
- │    SKILLRL (2026.01)               │
- │    Skill Creator 2.0 (2025.12)     │
-```
-
-### 3.2 Skill 召回技术演进
-
-```
-2024            2025                  2026
- │              │                     │
- ├─ 粗粒度路由 ──┼──────────────────────┤
- │              ├─ 技能感知路由 ───────┤
- │              ├─ 结构感知检索 ───────┤
- │              │                     │
- │    SkillRouter (2025.02)           │
- │    SkillOrchestra (2025.08)        │
- │    Graph of Skills (2025.11)       │
- │    AgentSkillOS (2025.09)          │
-```
-
-### 3.3 Skill 执行技术演进
-
-```
-2024            2025                  2026
- │              │                     │
- ├─ 全量加载 ────┼──────────────────────┤
- │              ├─ 渐进式披露 ────────┤
- │              ├─ 执行流图 ─────────┤
- │              │                     │
- │    Progressive Disclosure (2025.01)│
- │    SkVM (2025.10)                 │
- │    skill-insight 执行追踪 (2025.09)│
-```
-
-### 3.4 Skill 评测技术演进
-
-```
-2024            2025                  2026
- │              │                     │
- ├─ 结果评测 ────┼──────────────────────┤
- │              ├─ 多维评测 ───────────┤
- │              ├─ 执行追溯 ───────────┤
- │              ├─ 智能归因 ───────────┤
- │              │                     │
- │    SkillsBench (2025.05)           │
- │    SkillProbe (2025.07)           │
- │    skill-insight (2025.09)        │
-```
-
-### 3.5 Skill 优化技术演进
-
-```
-2025            2026
- │              │
- ├─ 迭代优化 ────┼────────────────────┤
- │              ├─ 自优化 ────────────┤
- │              ├─ 递归进化 ─────────┤
- │              │                     │
- │    Iterative Optimizer (2025.11)  │
- │    SkillForge (2026.03)           │
- │    SKILLRL (2026.01)              │
-```
-
-### 3.6 Skill 管理技术演进
-
-```
-2025            2026
- │              │
- ├─ 版本管理 ────┼────────────────────┤
- │              ├─ 生命周期管理 ───────┤
- │              ├─ 标准化 ────────────┤
- │              │                     │
- │    AgentSkillOS (2025.09)         │
- │    Skills 标准 (2025.01)          │
- │    RBAC Permission (研究中)       │
-```
+| 节点 | 项目 | 内容 |
+|---|---|---|
+| 持续 | [Skill Creator](tech-skill-creator) | Anthropic 官方课程 + Claude Code 内置 |
+| 持续 | [Skill Seekers](tech-skill-seekers) | 社区开源，18 数据源 → 20 平台 |
+| 持续 | [OpenSpace](tech-openspace) | HKU HKUDS · 4.7K+ ★ · 社区云上线 |
+| 持续 | [Hermes Self-Evolution](tech-hermes-self-evolution) | Nous Research · GEPA ICLR 2026 Oral |
+| 持续 | [Claudeception](tech-claudeception) | 社区开源 · 506+ ★ |
+| 持续 | [SkillRouter.org](tech-skillrouter-org) | 商业 MCP 服务上线 |
+| 持续 | [agentskills.io](tech-skills-standard) | 跨平台 Skill 格式开放标准 |
+| 持续 | [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/) | 安全治理指南立项 |
 
 ---
 
-## 四、技术演进规律总结
+## 四、技术演进规律
 
-### 4.1 从"重实现"到"重管理"
+### 4.1 生成赛道：从手工到自动，从单源到多源
 
-早期关注 Skill 如何实现（工具调用、协议），后期转向 Skill 如何管理（召回、评测、优化）。
+2025 年的 Skill Creator 把"手工写"做成"引导式 + Eval 闭环"；2026 年 Q1 EvoSkill / Trace2Skill / EvoSkills 把生成路径推到"从失败中自动发现"和"从执行轨迹蒸馏"。**8+ 个生成方案密集出现在同一季度**，是六大阶段中最拥挤的赛道。
 
-### 4.2 从"人工设计"到"自动生成"
+### 4.2 优化赛道：进化框架密集涌现
 
-从人工编写 Skill 指令，到 AI 自动从文档/轨迹中提取 Skill。
+2026 年 Q1 一个季度内出现 7 个进化框架（OpenSpace / Hermes / SkillClaw / MetaClaw / EvoSkill / SkillForge / Trace2Skill），按"进化信号从哪来"分化为 7 条路径，但都在走向"执行 → 分析 → 进化 → 验证 → 部署"的闭环 —— **正在趋同**。
 
-### 4.3 从"单点优化"到"全生命周期闭环"
+### 4.3 评测 / 管理赛道：被点名但无方案
 
-从单一维度的优化，到覆盖生成→召回→执行→评测→优化→管理的完整闭环。
-
-### 4.4 从"开放生态"到"标准化"
-
-从野蛮生长（11.8 万个 Skills，质量参差不齐）到标准化进程加速（跨平台可移植性成为焦点）。
+2026 年 2 月 SkillsBench 量化了"16/84 负增益"等反共识结论；2026 年 1-2 月连续两篇安全研究揭示 26.1% 漏洞率。**问题已被充分研究，但防御和过程评测工具仍接近为零** —— 这是未来 6-12 个月最确定的工程机会。
 
 ---
 
 ## 五、参考资料
 
-- [Agent Skills洞察与实践 - tech-blog 专栏](https://zhuanlan.zhihu.com/p/2028505867184612884)
-- [witty-skill-insight 项目](https://atomgit.com/openeuler/witty-skill-insight)
-- [SKILLRL GitHub](https://github.com/aiming-lab/SkillRL)
+- [全部 19 个真实产品](02-projects)
+- 每个产品的论文 / 仓库链接见各 [tech-*.md 详情页](../)
+- 行业判断依据：Skill-insight 竞品分析文档（内部，2026-05）

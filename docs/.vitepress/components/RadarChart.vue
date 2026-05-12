@@ -1,58 +1,38 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import * as d3 from 'd3'
+import radarData from '../../assets/radar-data.json'
 
 const radarRef = ref(null)
 
 const drawRadar = () => {
   if (!radarRef.value) return
 
-  const data = {
-    categories: [
-      {
-        id: 'evaluation',
-        label: 'Skill 评测',
-        score: 0.73,
-        color: '#96CEB4'
-      },
-      {
-        id: 'recall',
-        label: 'Skill 召回',
-        score: 0.66,
-        color: '#4ECDC4'
-      },
-      {
-        id: 'execution',
-        label: 'Skill 执行',
-        score: 0.54,
-        color: '#45B7D1'
-      },
-      {
-        id: 'optimization',
-        label: 'Skill 优化',
-        score: 0.53,
-        color: '#DDA0DD'
-      },
-      {
-        id: 'generation',
-        label: 'Skill 生成',
-        score: 0.52,
-        color: '#FF6B6B'
-      },
-      {
-        id: 'management',
-        label: 'Skill 管理',
-        score: 0.39,
-        color: '#B8B8B8'
-      }
-    ]
-  }
+  const colorById = Object.fromEntries(
+    radarData.categories.map(c => [c.id, c.color])
+  )
+  const labelById = Object.fromEntries(
+    radarData.categories.map(c => [c.id, c.label])
+  )
 
-  const width = 500
-  const height = 400
+  const axisOrder = ['evaluation', 'recall', 'execution', 'optimization', 'generation', 'management']
+
+  const categories = axisOrder.map(id => {
+    const s = radarData.categorySummary.find(c => c.id === id)
+    return {
+      id,
+      label: labelById[id] || s.label,
+      color: colorById[id] || '#888',
+      score: s.overallScore,
+      status: s.status,
+    }
+  })
+
+  const width = 560
+  const height = 460
   const centerX = width / 2
   const centerY = height / 2
-  const radius = Math.min(width, height) / 2 - 60
+  const radius = Math.min(width, height) / 2 - 70
   const levels = 5
   const maxValue = 1.0
 
@@ -65,15 +45,10 @@ const drawRadar = () => {
     .append('g')
     .attr('transform', `translate(${centerX}, ${centerY})`)
 
-  const angleSlice = (Math.PI * 2) / data.categories.length
+  const angleSlice = (Math.PI * 2) / categories.length
 
-  // Draw concentric circles (levels)
   for (let level = 0; level < levels; level++) {
     const levelRadius = (radius / levels) * (level + 1)
-    const circle = d3.svg.circle()
-      .radius(levelRadius)
-      .center([0, 0])
-
     svg.append('circle')
       .attr('r', levelRadius)
       .attr('fill', 'none')
@@ -81,47 +56,51 @@ const drawRadar = () => {
       .attr('stroke-width', 1)
       .attr('stroke-dasharray', '3,3')
 
-    // Level label
     svg.append('text')
       .attr('x', 5)
-      .attr('y', -levelRadius - 5)
+      .attr('y', -levelRadius - 4)
       .attr('font-size', '10px')
       .attr('fill', '#999')
       .text(`${((level + 1) / levels * 100).toFixed(0)}%`)
   }
 
-  // Draw axes
-  data.categories.forEach((cat, i) => {
+  categories.forEach((cat, i) => {
     const angle = angleSlice * i - Math.PI / 2
     const x = Math.cos(angle) * radius
     const y = Math.sin(angle) * radius
 
-    // Axis line
     svg.append('line')
       .attr('x1', 0)
       .attr('y1', 0)
       .attr('x2', x)
       .attr('y2', y)
-      .attr('stroke', '#e0e0e0')
+      .attr('stroke', '#d8d8d8')
       .attr('stroke-width', 1)
 
-    // Label
-    const labelX = Math.cos(angle) * (radius + 30)
-    const labelY = Math.sin(angle) * (radius + 30)
+    const labelX = Math.cos(angle) * (radius + 36)
+    const labelY = Math.sin(angle) * (radius + 36)
 
     svg.append('text')
       .attr('x', labelX)
-      .attr('y', labelY)
+      .attr('y', labelY - 6)
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
-      .attr('font-size', '12px')
+      .attr('font-size', '13px')
       .attr('font-weight', 'bold')
       .attr('fill', cat.color)
       .text(cat.label)
+
+    svg.append('text')
+      .attr('x', labelX)
+      .attr('y', labelY + 10)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-size', '11px')
+      .attr('fill', '#666')
+      .text(`${(cat.score * 100).toFixed(0)}% · ${cat.status}`)
   })
 
-  // Draw data polygon
-  const points = data.categories.map((cat, i) => {
+  const points = categories.map((cat, i) => {
     const angle = angleSlice * i - Math.PI / 2
     const r = (cat.score / maxValue) * radius
     return {
@@ -131,19 +110,17 @@ const drawRadar = () => {
     }
   })
 
-  const lineFunction = d3.svg.line()
+  const lineGenerator = d3.line()
     .x(d => d.x)
     .y(d => d.y)
-    .interpolate('linear-closed')
+    .curve(d3.curveLinearClosed)
 
-  // Fill area
   svg.append('path')
-    .attr('d', lineFunction(points))
-    .attr('fill', 'rgba(78, 205, 196, 0.2)')
+    .attr('d', lineGenerator(points))
+    .attr('fill', 'rgba(78, 205, 196, 0.18)')
     .attr('stroke', '#4ECDC4')
     .attr('stroke-width', 2)
 
-  // Data points
   svg.selectAll('.data-point')
     .data(points)
     .enter()
@@ -157,7 +134,7 @@ const drawRadar = () => {
     .attr('stroke-width', 2)
     .style('cursor', 'pointer')
     .append('title')
-    .text(d => `${d.label}: ${(d.score * 100).toFixed(0)}%`)
+    .text(d => `${d.label}: ${(d.score * 100).toFixed(0)}% ${d.status}`)
 }
 
 onMounted(() => {
@@ -171,15 +148,15 @@ onMounted(() => {
     <div class="legend">
       <div class="legend-item">
         <span class="dot" style="background: #96CEB4"></span>
-        <span>🟢 成熟期 (>0.6)</span>
+        <span>🟢 成熟期 (≥ 0.60)</span>
       </div>
       <div class="legend-item">
         <span class="dot" style="background: #FFB347"></span>
-        <span>🟡 成长期 (0.4-0.6)</span>
+        <span>🟡 成长期 (0.40 – 0.60)</span>
       </div>
       <div class="legend-item">
         <span class="dot" style="background: #B8B8B8"></span>
-        <span>🔴 探索期 (<0.4)</span>
+        <span>🔴 探索期 (&lt; 0.40)</span>
       </div>
     </div>
   </div>

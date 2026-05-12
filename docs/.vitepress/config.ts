@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Skills Radar',
-  description: '追踪 Skills 技术，让 Agent 能力进化有迹可循',
+  description: 'Agent Skill 业界真实方案地图 · 19 个公开可验证的产品 / 6 大生命周期',
   base: '/skills-radar/',
   ignoreDeadLinks: true,
 
@@ -46,21 +46,53 @@ export default defineConfig({
           ]
         },
         {
-          text: '具体技术详解',
+          text: '业界产品详解 · 生成',
+          collapsed: true,
           items: [
-            { text: 'skill-insight', link: '/radar/tech-skillinsight' },
-            { text: 'SkillRouter', link: '/radar/tech-skillrouter' },
-            { text: 'Graph of Skills', link: '/radar/tech-graph-of-skills' },
+            { text: 'Skill Creator (Anthropic)', link: '/radar/tech-skill-creator' },
+            { text: 'Skill Seekers', link: '/radar/tech-skill-seekers' },
+            { text: 'EvoSkill', link: '/radar/tech-evoskill' },
+            { text: 'EvoSkills / CoEvoSkills', link: '/radar/tech-evoskills' },
+            { text: 'Claudeception', link: '/radar/tech-claudeception' },
             { text: 'Trace2Skill', link: '/radar/tech-trace2skill' },
-            { text: 'D2Skill', link: '/radar/tech-d2skill' },
             { text: 'SkillX', link: '/radar/tech-skillx' },
-            { text: 'SkVM', link: '/radar/tech-skvm' },
-            { text: 'SkillProbe', link: '/radar/tech-skillprobe' },
-            { text: 'SkillForge', link: '/radar/tech-skillforge' },
-            { text: 'SkillReducer', link: '/radar/tech-skillreducer' },
+          ]
+        },
+        {
+          text: '业界产品详解 · 召回',
+          collapsed: true,
+          items: [
+            { text: 'SkillRouter', link: '/radar/tech-skillrouter' },
+            { text: 'AgentSkillOS', link: '/radar/tech-agentskillos' },
+            { text: 'SkillNet', link: '/radar/tech-skillnet' },
+            { text: 'SkillRouter.org', link: '/radar/tech-skillrouter-org' },
+          ]
+        },
+        {
+          text: '业界产品详解 · 执行',
+          collapsed: true,
+          items: [
+            { text: 'OpenSpace', link: '/radar/tech-openspace' },
             { text: 'Memento-Skills', link: '/radar/tech-memento-skills' },
+          ]
+        },
+        {
+          text: '业界产品详解 · 评测 / 优化',
+          collapsed: true,
+          items: [
             { text: 'SkillsBench', link: '/radar/tech-skillsbench' },
-            { text: 'SKILLRL', link: '/radar/tech-skillrl' },
+            { text: 'Hermes Self-Evolution', link: '/radar/tech-hermes-self-evolution' },
+            { text: 'SkillClaw', link: '/radar/tech-skillclaw' },
+            { text: 'MetaClaw', link: '/radar/tech-metaclaw' },
+            { text: 'SkillReducer', link: '/radar/tech-skillreducer' },
+            { text: 'SkillForge', link: '/radar/tech-skillforge' },
+          ]
+        },
+        {
+          text: '业界产品详解 · 管理',
+          collapsed: true,
+          items: [
+            { text: 'Agent Skills 标准', link: '/radar/tech-skills-standard' },
           ]
         },
       ],
@@ -71,7 +103,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: '基于 skill-insight 全生命周期管理方法论',
+      message: 'Agent Skill 业界真实方案地图 · 数据来自公开论文、开源仓库与产品页',
       copyright: 'MIT License | Skills Radar'
     }
   }

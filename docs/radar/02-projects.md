@@ -1,138 +1,82 @@
-# Skills 技术领域代表项目调研
+# Skills 业界代表项目调研
 
-> **版本**: v1.0.0
-> **创建日期**: 2026-05-10
-> **Story**: R-002
-> **状态**: 初稿
-
----
-
-## 概述
-
-本目录调研 Skills 技术六大阶段的代表项目/论文，覆盖生成、召回、执行、评测、优化、管理领域。每个技术领域至少 3 个代表项目。
+> **版本**: v2.0 · **更新日期**: 2026-05-12
+>
+> 本表列出业界 19 个有公开论文 / 仓库 / 产品页可验证的真实方案。所有条目均不是占位。
 
 ---
 
-## 2.1 Skill 生成（Generation）代表项目
+## 1. Skill 生成（Generation）
 
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **Trace2Skill** | 学术 | 从执行轨迹中自动提取可复用技能 | - |
-| **D2Skill** | 学术 | 双粒度动态技能库，驱动策略-技能协同进化 | - |
-| **SkillX** | 学术 | 为 Agent 打造自动化构建、可复用的 Skill 库 | - |
-| **Memento-Skills** | 学术 | 让 Agent 自主设计 Skill，实现自我进化 | - |
-| **Skill Creator 2.0** | Anthropic | 人机协作持续优化，使 Agent 能加载专业技能 | - |
-| **SKILLRL** | 学术 | 通过技能的强化学习促进 Agent 自进化 | [GitHub](https://github.com/aiming-lab/SkillRL) |
-| **Trace** | 学术 | 将成功执行经验固化到 Skill | - |
-
----
-
-## 2.2 Skill 召回（Recall/Routing）代表项目
-
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **SkillRouter** | 学术 | 破解大规模 Skills 选择难题的新范式 | - |
-| **SkillOrchestra** | 学术 | 基于技能的 Agent 路由策略，提升 22.5% | - |
-| **Graph of Skills** | 学术 | 千级规模 Skill 库的结构感知检索方案 | - |
-| **AgentSkillOS** | 学术 | 生态级规模下技能的组织、编排与基准测试 | - |
-| **SkillNet** | 学术 | 创建、评估与连接 AI 技能 | - |
-| **Pareto 验证** | 学术 | 性能与成本间的原理性平衡选择 | - |
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **Skill Creator** | Anthropic 官方 | 引导式 + Eval 闭环 + description 自动优化 | [GitHub](https://github.com/anthropics/courses/tree/master/skill-creator) · [详情](tech-skill-creator) |
+| **Skill Seekers** | 社区开源 | 18 数据源 → 20 平台格式自动适配 | [GitHub](https://github.com/yusufkaraaslan/Skill_Seekers) · [详情](tech-skill-seekers) |
+| **EvoSkill** | Sentient AGI | 三 Agent 协作从失败中自动发现 Skill | [论文](https://arxiv.org/abs/2603.02766) · [GitHub](https://github.com/sentient-agi/EvoSkill) · [详情](tech-evoskill) |
+| **EvoSkills / CoEvoSkills** | 学术 | Surrogate Verifier + Oracle 协同进化（75% 通过率） | [论文](https://arxiv.org/abs/2604.01687) · [GitHub](https://github.com/Zhang-Henry/CoEvoSkills) · [详情](tech-evoskills) |
+| **Claudeception** | 社区 (506+ ★) | Claude Code 会话自动提取「可复用 + 非平凡 + 具体 + 已验证」Skill | [GitHub](https://github.com/blader/Claudeception) · [详情](tech-claudeception) |
+| **Trace2Skill** | 阿里 Qwen + ETH | 并行多 sub-agent 编队从轨迹池蒸馏 Skill | [论文](https://arxiv.org/abs/2603.25158) · [详情](tech-trace2skill) |
+| **SkillForge** | 阿里云 | 从历史工单挖掘工具 schema + 三阶段自优化 | [论文](https://arxiv.org/abs/2604.08618) · [详情](tech-skillforge) |
+| **SkillX** | 学术 | 策略 / 功能 / 原子三层粒度蒸馏 | [论文](https://arxiv.org/abs/2604.04804) · [详情](tech-skillx) |
 
 ---
 
-## 2.3 Skill 执行（Execution）代表项目
+## 2. Skill 召回（Recall / Routing）
 
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **Progressive Disclosure** | Anthropic | 渐进式披露，分阶段加载 Skill 内容 | - |
-| **SkVM** | 学术 | 给 Skills 做个编译器，一次编写，到处运行 | - |
-| **渐进式加载** | 框架特性 | 元数据→指令→资源三阶段加载 | - |
-| **执行流图** | skill-insight | 可视化 Skill 执行路径追踪 | - |
-| **Permission Sandboxing** | 安全研究 | Skill 执行时的安全沙箱隔离 | - |
-| **Skill Pipeline** | 学术 | 多 Skill 协同的并行调度 | - |
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **SkillRouter** | 学术 | 双编码器 + 重排，80K 池 74% Hit@1 | [论文](https://arxiv.org/abs/2603.22455) · [GitHub](https://github.com/zhengyanzhao1997/SkillRouter) · [详情](tech-skillrouter) |
+| **AgentSkillOS** | 学术 | Capability Tree 递归分类 + DAG 编排 | [论文](https://arxiv.org/abs/2603.02176) · [详情](tech-agentskillos) |
+| **SkillNet** | 浙大 NLP | 40 万+ Skill 仓库 + Ontology 三层架构 | [论文](https://arxiv.org/abs/2603.04448) · [GitHub](https://github.com/zjunlp/SkillNet) · [详情](tech-skillnet) |
+| **SkillRouter.org** | 社区产品 | 即插即用 MCP 路由商业服务 | [官网](https://skillrouter.org/) · [详情](tech-skillrouter-org) |
 
 ---
 
-## 2.4 Skill 评测（Evaluation）代表项目
+## 3. Skill 执行（Execution）
 
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **skill-insight** | openEuler | 多维评测、执行追溯、归因分析 | [AtomGit](https://atomgit.com/openeuler/witty-skill-insight) |
-| **SkillsBench** | 学术 | 衡量智能体技能在多样化任务中的表现的基准测试 | - |
-| **SkillProbe** | 学术 | 用"魔法"打败"魔法"——用 Skill 审计 Skills | - |
-| **Cross-Evaluation** | 学术 | 多 Skill、多模型、多任务横向对比 | - |
-| **AgentOps** | 学术 | AI Agent 系统的可观测性研究 | - |
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **OpenSpace** | HKU (4.7K+ ★) | MCP Server 即插即用接入 Claude Code / Codex / Cursor | [GitHub](https://github.com/HKUDS/OpenSpace) · [社区云](https://open-space.cloud/) · [详情](tech-openspace) |
+| **AgentSkillOS** | 学术 | DAG 编排，能并行的并行、必须串行的串行 | [论文](https://arxiv.org/abs/2603.02176) · [详情](tech-agentskillos) |
+| **Memento-Skills** | 学术 | Read → Execute → Reflect → Write 闭环 | [论文](https://arxiv.org/abs/2603.18743) · [GitHub](https://github.com/Memento-Teams/Memento-Skills) · [详情](tech-memento-skills) |
 
 ---
 
-## 2.5 Skill 优化（Optimization）代表项目
+## 4. Skill 评测（Evaluation）
 
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **Skill-insight Optimizer** | openEuler | 基于归因结果的自动修复 | - |
-| **SkillForge** | 学术 | 让企业级 Agent Skills 实现自主进化 | - |
-| **Iterative Optimizer** | openEuler | 多次评测-优化-再评测闭环 | - |
-| **SkillReducer** | 学术 | 为 Skills 瘦身 40%，破解 Token 低效难题 | - |
-| **Recursive Skill Evolution** | 学术 | 递归式技能进化机制 | - |
-| **D2Skill** | 学术 | 根据模型能力动态调整 Skill 策略 | - |
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **SkillsBench** | 学术 | 三条件对比，7,308 条轨迹 / 84 任务 / 11 领域 | [论文](https://arxiv.org/abs/2602.12670) · [GitHub](https://github.com/benchflow-ai/skillsbench) · [详情](tech-skillsbench) |
+| **SkillNet 5 维评分** | 浙大 NLP | 安全 / 完整 / 可执行 / 可维护 / 成本 | [论文](https://arxiv.org/abs/2603.04448) · [详情](tech-skillnet) |
+| **EvoSkills Surrogate Verifier** | 学术 | 主动生成测试断言 + 结构化失败诊断反馈 | [论文](https://arxiv.org/abs/2604.01687) · [详情](tech-evoskills) |
+| **SkillForge Diagnostician** | 阿里云 | 将执行失败追溯回具体 Skill 缺陷 | [论文](https://arxiv.org/abs/2604.08618) · [详情](tech-skillforge) |
 
 ---
 
-## 2.6 Skill 管理（Management）代表项目
+## 5. Skill 优化（Optimization）
 
-| 项目/论文 | 来源 | 核心技术 | 链接 |
-|---------|------|---------|------|
-| **AgentSkillOS** | 学术 | 生态级技能的组织、编排与生命周期管理 | - |
-| **SkillNet** | 学术 | 创建、评估与连接 AI 技能 | - |
-| **RBAC Permission** | 安全研究 | 基于角色的 Skill 权限管控 | - |
-| **Git-based Versioning** | 社区实践 | 基于 Git 的 Skill 版本控制 | - |
-| **Skills 标准** | Anthropic | 跨平台的 Skill 格式与协议标准 | - |
-
----
-
-## 三、技术领域分布图
-
-```
-Skill 生成     ████████░░░░  7 个项目
-Skill 召回     ████████████  6 个项目
-Skill 执行     ██████░░░░░░  6 个项目
-Skill 评测     ██████░░░░░░  5 个项目
-Skill 优化     ████████░░░░  6 个项目
-Skill 管理     ██████░░░░░░  5 个项目
-```
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **OpenSpace** | HKU (4.7K+ ★) | FIX / DERIVED / CAPTURED 三模式实时进化 | [GitHub](https://github.com/HKUDS/OpenSpace) · [详情](tech-openspace) |
+| **Hermes Self-Evolution** | Nous Research | GEPA 优化器（ICLR 2026 Oral）+ PR 模式人工审核 | [GitHub](https://github.com/NousResearch/hermes-agent-self-evolution) · [详情](tech-hermes-self-evolution) |
+| **SkillClaw** | AMAP-ML | 后台守护进程聚合多用户轨迹进化 Skill | [论文](https://arxiv.org/abs/2604.08377) · [GitHub](https://github.com/AMAP-ML/SkillClaw) · [详情](tech-skillclaw) |
+| **MetaClaw** | OpenClaw (3.5K+ ★) | Fast Loop（秒级）+ Slow Loop（小时级）双环 | [论文](https://arxiv.org/abs/2603.17187) · [GitHub](https://github.com/aiming-lab/MetaClaw) · [详情](tech-metaclaw) |
+| **SkillReducer** | 港科大 | 静态压缩 + 渐进披露，less-is-more 效应 +2.8% | [论文](https://arxiv.org/abs/2603.29919) · [详情](tech-skillreducer) |
+| **EvoSkill (Pareto)** | Sentient AGI | Pareto 前沿选择 + Git 分支管理进化变体 | [论文](https://arxiv.org/abs/2603.02766) · [详情](tech-evoskill) |
+| **SkillForge (Optimizer)** | 阿里云 | Failure Analyzer → Diagnostician → Optimizer | [论文](https://arxiv.org/abs/2604.08618) · [详情](tech-skillforge) |
 
 ---
 
-## 四、关键论文与技术来源
+## 6. Skill 管理（Management）
 
-### 4.1 学术论文
-
-| 论文 | 年份 | 机构 | 核心贡献 |
-|------|------|------|---------|
-| When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail | 2026 | 研究机构 | Skills 消除多智能体通信开销 |
-| SkillOrchestra: Learning to Route Agents via Skill Transfer | 2026 | - | 技能感知路由，提升 22.5% |
-| SKILLRL: Evolving Agents via Recursive Skill-Augmented Reinforcement Learning | 2026 | aiming-lab | 技能增强递归强化学习 |
-| AgentOps: Observability for AI Agent Systems | 2026 | CSIRO Data61 | Agent 可观测性研究 |
-
-### 4.2 开源项目
-
-| 项目 | 平台 | 核心技术 |
-|------|------|---------|
-| skill-insight | AtomGit | 多维评测、执行追踪、归因分析 |
-| SKILLRL | GitHub | 技能强化学习 |
-
-### 4.3 工业实现
-
-| 产品 | 公司 | 核心贡献 |
-|------|------|---------|
-| Claude Skills | Anthropic | Skills 开放标准和生态 |
-| skills.sh | Vercel | 一键安装 Skills 平台 |
-| Skill Creator 2.0 | Anthropic | 人机协作 Skill 生成 |
+| 项目 / 论文 | 来源 | 核心技术 | 链接 |
+|---|---|---|---|
+| **SkillNet** | 浙大 NLP | 40 万+ Skill 集中式知识库 | [论文](https://arxiv.org/abs/2603.04448) · [GitHub](https://github.com/zjunlp/SkillNet) · [详情](tech-skillnet) |
+| **AgentSkillOS** | 学术 | 生态级生命周期管理 | [论文](https://arxiv.org/abs/2603.02176) · [详情](tech-agentskillos) |
+| **Agent Skills 标准** | 社区开放标准 | 跨平台 Skill 格式与协议 | [官网](https://agentskills.io/) · [详情](tech-skills-standard) |
 
 ---
 
-## 五、参考资料
+## 关于"我们的能力"
 
-- [Agent Skills洞察与实践 - tech-blog 专栏](https://zhuanlan.zhihu.com/p/2028505867184612884)
-- [witty-skill-insight 项目](https://atomgit.com/openeuler/witty-skill-insight)
-- [SKILLRL GitHub](https://github.com/aiming-lab/SkillRL)
+本文档**只列业界产品**。本团队自研的差异化能力（如 Agent 过程遵从性评测、多维度观测看板、Skill 多版本管理及趋势观测）不在此页范围。
