@@ -4,7 +4,7 @@ import radarData from '../../assets/radar-data.json'
 
 const selected = ref(null)
 const filterText = ref('')
-const failedLogos = reactive({}) // id -> true if logo failed to load
+const failedLogos = reactive({})
 
 const stageIcons = {
   generation: '🏗️',
@@ -14,12 +14,6 @@ const stageIcons = {
   optimization: '🚀',
   management: '🛡️',
 }
-
-const summaryById = Object.fromEntries(
-  radarData.categorySummary.map(s => [s.id, s])
-)
-
-const dimensions = radarData.dimensions
 
 const filtered = computed(() => {
   const q = filterText.value.trim().toLowerCase()
@@ -62,17 +56,39 @@ function onLogoError(id) {
 
 function open(tech, cat) {
   selected.value = { ...tech, _category: cat }
-  document.body.style.overflow = 'hidden'
+  if (typeof document !== 'undefined') document.body.style.overflow = 'hidden'
 }
 
 function close() {
   selected.value = null
-  document.body.style.overflow = ''
+  if (typeof document !== 'undefined') document.body.style.overflow = ''
 }
 
-function overallScore(scores) {
-  if (!scores) return null
-  return (scores[0] * 0.3 + scores[1] * 0.25 + scores[2] * 0.25 + scores[3] * 0.2).toFixed(2)
+// Decide an icon character for a reference link based on label/url
+function refIcon(ref) {
+  const text = (ref.label + ' ' + ref.url).toLowerCase()
+  if (text.includes('github.com') || text.includes('github')) return '⌥'
+  if (text.includes('arxiv.org') || text.includes('论文') || text.includes('paper')) return '📄'
+  if (text.includes('huggingface') || text.includes('blog') || text.includes('博客')) return '✎'
+  if (text.includes('文档') || text.includes('docs')) return '📖'
+  return '🔗'
+}
+
+// Build a unified link list for modal header. Always include primary `link` first,
+// then `references` (de-dup against primary).
+function allLinks(tech) {
+  const list = []
+  const seen = new Set()
+  if (tech.link) {
+    list.push({ label: '主要链接', url: tech.link, isPrimary: true })
+    seen.add(tech.link)
+  }
+  for (const r of (tech.detail?.references || [])) {
+    if (!r.url || seen.has(r.url)) continue
+    list.push({ label: r.label, url: r.url })
+    seen.add(r.url)
+  }
+  return list
 }
 </script>
 
@@ -80,6 +96,8 @@ function overallScore(scores) {
   <div class="landscape-root">
     <div class="landscape-header">
       <div class="landscape-stats">
+        <strong>Skills Radar</strong>
+        <span class="dim">·</span>
         <span>{{ totalCount }} 个产品</span>
         <span class="dim">·</span>
         <span>6 大生命周期</span>
@@ -104,13 +122,7 @@ function overallScore(scores) {
           <span class="stage-icon">{{ stageIcons[cat.id] || '◆' }}</span>
           <div class="stage-title">
             <h3>{{ cat.label }}</h3>
-            <div class="stage-meta">
-              <span class="badge" :style="{ background: cat.color }">
-                {{ summaryById[cat.id]?.overallScore?.toFixed(2) }}
-              </span>
-              <span class="muted">{{ summaryById[cat.id]?.status }}</span>
-              <span class="muted">· {{ cat.technologies.length }} 个产品</span>
-            </div>
+            <span class="stage-count">{{ cat.technologies.length }} 个产品</span>
           </div>
         </header>
 
@@ -174,15 +186,27 @@ function overallScore(scores) {
                   {{ selected._category.label }}
                 </span>
                 <span class="tag-muted">{{ selected.source }}</span>
-                <span
-                  v-if="overallScore(selected.scores)"
-                  class="tag-muted"
-                >综合评分 {{ overallScore(selected.scores) }}</span>
               </div>
               <p v-if="selected.detail?.tagline" class="modal-tagline">
                 {{ selected.detail.tagline }}
               </p>
             </div>
+          </div>
+
+          <div v-if="allLinks(selected).length" class="links-bar">
+            <a
+              v-for="(l, i) in allLinks(selected)"
+              :key="i"
+              :href="l.url"
+              target="_blank"
+              rel="noopener"
+              class="link-btn"
+              :class="{ primary: l.isPrimary }"
+              :title="l.url"
+            >
+              <span class="link-icon">{{ refIcon(l) }}</span>
+              <span class="link-label">{{ l.label }}</span>
+            </a>
           </div>
 
           <p class="modal-desc">{{ selected.description }}</p>
@@ -205,51 +229,6 @@ function overallScore(scores) {
               <li v-for="(l, i) in selected.detail.limitations" :key="i">{{ l }}</li>
             </ul>
           </section>
-
-          <section v-if="selected.scores" class="modal-section">
-            <h4>4 维成熟度评分</h4>
-            <div class="scores">
-              <div v-for="(s, i) in selected.scores" :key="i" class="score-row">
-                <div class="score-label">
-                  {{ dimensions[i].label }}
-                  <span class="score-value">{{ s.toFixed(2) }}</span>
-                </div>
-                <div class="score-bar">
-                  <div
-                    class="score-fill"
-                    :style="{ width: (s * 100) + '%', background: selected._category.color }"
-                  />
-                </div>
-                <div
-                  v-if="selected.detail?.scoreRationale?.[dimensions[i].key]"
-                  class="score-rationale"
-                >
-                  {{ selected.detail.scoreRationale[dimensions[i].key] }}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section v-if="selected.detail?.references?.length" class="modal-section">
-            <h4>参考资料</h4>
-            <ul class="ref-list">
-              <li v-for="(r, i) in selected.detail.references" :key="i">
-                <a :href="r.url" target="_blank" rel="noopener">{{ r.label }} ↗</a>
-              </li>
-            </ul>
-          </section>
-
-          <div class="modal-actions">
-            <a
-              v-if="selected.link"
-              :href="selected.link"
-              target="_blank"
-              rel="noopener"
-              class="btn primary"
-            >
-              访问原始链接 →
-            </a>
-          </div>
         </div>
       </div>
     </Transition>
@@ -259,7 +238,7 @@ function overallScore(scores) {
 <style scoped>
 .landscape-root {
   font-size: 14px;
-  margin: 24px 0;
+  margin: 24px 32px;
 }
 
 .landscape-header {
@@ -268,7 +247,7 @@ function overallScore(scores) {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--vp-c-divider);
 }
@@ -276,8 +255,15 @@ function overallScore(scores) {
 .landscape-stats {
   display: flex;
   gap: 10px;
+  align-items: center;
   color: var(--vp-c-text-2);
   font-size: 13px;
+}
+
+.landscape-stats strong {
+  color: var(--vp-c-text-1);
+  font-size: 16px;
+  letter-spacing: 0.3px;
 }
 
 .dim { opacity: 0.45; }
@@ -312,27 +298,22 @@ function overallScore(scores) {
 
 .stage-icon { font-size: 26px; line-height: 1; }
 
-.stage-title h3 { margin: 0; font-size: 17px; font-weight: 600; }
-
-.stage-meta {
+.stage-title {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.stage-title h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.stage-count {
   font-size: 12px;
   color: var(--vp-c-text-2);
 }
-
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 11px;
-}
-
-.muted { color: var(--vp-c-text-2); }
 
 .cards {
   display: grid;
@@ -376,9 +357,9 @@ function overallScore(scores) {
 }
 
 .logo-wrap.large {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
 }
 
 .logo-img {
@@ -401,7 +382,7 @@ function overallScore(scores) {
   letter-spacing: 0.5px;
 }
 
-.logo-wrap.large .logo-block { font-size: 22px; }
+.logo-wrap.large .logo-block { font-size: 24px; }
 
 .tech-name {
   font-weight: 600;
@@ -430,22 +411,31 @@ function overallScore(scores) {
 .modal-card {
   background: var(--vp-c-bg);
   border-radius: 14px;
-  max-width: 680px;
-  width: 100%;
+  width: 66vw;
+  max-width: 1100px;
+  min-width: 320px;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 28px;
+  padding: 32px 36px;
   position: relative;
   border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .modal-card {
+    width: 95vw;
+    padding: 22px 18px;
+  }
 }
 
 .modal-close {
   position: absolute;
   top: 14px;
-  right: 16px;
+  right: 18px;
   background: transparent;
   border: none;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 1;
   cursor: pointer;
   color: var(--vp-c-text-2);
@@ -456,20 +446,25 @@ function overallScore(scores) {
 
 .modal-head {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  padding-right: 36px;
 }
 
-.modal-title { flex: 1; }
-.modal-title h2 { margin: 0 0 6px; font-size: 22px; }
+.modal-title { flex: 1; min-width: 0; }
+.modal-title h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
+}
 
 .modal-tags {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .tag {
@@ -493,22 +488,79 @@ function overallScore(scores) {
 .modal-tagline {
   font-size: 14px;
   color: var(--vp-c-text-2);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 6px 0 0;
+}
+
+/* Links bar (CNCF-style) */
+.links-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 14px 0;
+  border-top: 1px solid var(--vp-c-divider);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s;
+  max-width: 100%;
+}
+
+.link-btn:hover {
+  border-color: var(--vp-c-brand);
+  background: var(--vp-c-bg-alt);
+  transform: translateY(-1px);
+}
+
+.link-btn.primary {
+  background: var(--vp-c-brand);
+  color: #fff;
+  border-color: var(--vp-c-brand);
+}
+
+.link-btn.primary:hover {
+  filter: brightness(1.08);
+  background: var(--vp-c-brand);
+}
+
+.link-icon {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.link-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 320px;
 }
 
 .modal-desc {
   color: var(--vp-c-text-1);
-  line-height: 1.6;
-  margin: 0 0 20px;
-  padding: 12px 14px;
+  line-height: 1.65;
+  margin: 0 0 22px;
+  padding: 14px 16px;
   background: var(--vp-c-bg-soft);
   border-radius: 8px;
-  font-size: 13.5px;
+  font-size: 14px;
 }
 
 .modal-section {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .modal-section h4 {
@@ -522,108 +574,20 @@ function overallScore(scores) {
 
 .modal-section p {
   margin: 0;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--vp-c-text-1);
-  font-size: 13.5px;
+  font-size: 14px;
 }
 
 .modal-section ul {
   margin: 0;
-  padding-left: 20px;
-  line-height: 1.7;
+  padding-left: 22px;
+  line-height: 1.75;
   color: var(--vp-c-text-1);
-  font-size: 13.5px;
+  font-size: 14px;
 }
 
-.modal-section ul li { margin-bottom: 4px; }
-
-.scores {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.score-row {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 13px;
-}
-
-.score-label {
-  display: flex;
-  justify-content: space-between;
-  color: var(--vp-c-text-1);
-  font-weight: 500;
-}
-
-.score-bar {
-  height: 6px;
-  background: var(--vp-c-bg-soft);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.score-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s;
-}
-
-.score-value {
-  font-variant-numeric: tabular-nums;
-  color: var(--vp-c-text-2);
-  font-weight: 600;
-}
-
-.score-rationale {
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-  line-height: 1.5;
-  margin-top: 2px;
-  padding-left: 2px;
-}
-
-.ref-list {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
-
-.ref-list li { margin-bottom: 6px; }
-.ref-list a {
-  color: var(--vp-c-brand);
-  text-decoration: none;
-  font-size: 13px;
-}
-.ref-list a:hover { text-decoration: underline; }
-
-.modal-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-divider);
-  background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn:hover { border-color: var(--vp-c-brand); }
-
-.btn.primary {
-  background: var(--vp-c-brand);
-  color: #fff;
-  border-color: var(--vp-c-brand);
-}
+.modal-section ul li { margin-bottom: 5px; }
 
 /* Modal transition */
 .modal-enter-active,

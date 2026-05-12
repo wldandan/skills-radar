@@ -16,8 +16,6 @@ export default defineConfig({
     siteTitle: 'Skills Radar',
 
     nav: [
-      { text: '首页', link: '/' },
-      { text: '技术全景图', link: '/radar/landscape' },
       { text: 'GitHub', link: 'https://github.com/wldandan/skills-radar' },
     ],
 
