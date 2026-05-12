@@ -26,11 +26,11 @@ title: Skills 技术分类体系
 | 阶段 | 成熟度 | 综合评分 | 代表产品 |
 |---|---|:---:|---|
 | [Skill 召回](category-02-recall) | 🟢 成熟期 | **0.65** | SkillRouter · AgentSkillOS · SkillNet |
-| [Skill 优化](category-05-optimization) | 🟡 成长期 | **0.58** | OpenSpace · Hermes · SkillClaw · MetaClaw |
-| [Skill 生成](category-01-generation) | 🟡 成长期 | **0.55** | Skill Creator · Skill Seekers · EvoSkills · Trace2Skill |
-| [Skill 评测](category-04-evaluation) | 🟡 成长期 | **0.45** | SkillsBench · SkillNet · EvoSkills · SkillForge |
-| [Skill 执行](category-03-execution) | 🔴 探索期 | **0.42** | OpenSpace · AgentSkillOS · Memento-Skills |
-| [Skill 管理](category-06-management) | 🔴 探索期 | **0.32** | SkillNet · AgentSkillOS · Agent Skills 标准 |
+| [Skill 优化](category-05-optimization) | 🟢 成熟期（边界） | **0.60** | OpenSpace · **ACE** · Hermes · SkillClaw · MetaClaw |
+| [Skill 生成](category-01-generation) | 🟡 成长期 | **0.55** | Skill Creator · Skill Seekers · EvoSkills · Trace2Skill · **SkillRL** |
+| [Skill 评测](category-04-evaluation) | 🟡 成长期 | **0.47** | SkillsBench · SkillNet · EvoSkills · **SkillRet** · SkillForge |
+| [Skill 执行](category-03-execution) | 🟡 成长期 | **0.45** | OpenSpace · AgentSkillOS · Memento-Skills · **SkCC** |
+| [Skill 管理](category-06-management) | 🟡 成长期（边界） | **0.40** | **Vercel skills.sh** · SkillNet · AgentSkillOS · Agent Skills 标准 |
 
 ---
 
@@ -56,7 +56,7 @@ title: Skills 技术分类体系
 
 **定义**：按 Skill 定义的逻辑完成全链路运行、状态管控与异常处理。
 
-**核心痛点**：跨场景适配度无法预判（领域差异 10×）、负增益归因空白、跨框架行为不一致。
+**核心痛点**：跨场景适配度无法预判（领域差异 10×）、负增益归因空白。**SkCC 已破局跨框架可移植性**（SkIR 强类型 IR）。
 
 [查看完整技术文档 →](category-03-execution)
 
@@ -80,7 +80,7 @@ title: Skills 技术分类体系
 
 **定义**：面向大规模 Skill 库的版本、安全、权限、治理体系。
 
-**最大盲点**：26.1% 社区 Skill 含安全漏洞，但**没有任何自动化扫描工具**。Hermes "全封闭" vs OpenClaw "全裸奔" 缺少中间路径。
+**最大盲点**：26.1% 社区 Skill 含安全漏洞，但**没有任何自动化扫描工具**。即便 Vercel skills.sh 90K+ Skill 分发标准已成熟，**安全防御工具仍为零**。
 
 [查看完整技术文档 →](category-06-management)
 

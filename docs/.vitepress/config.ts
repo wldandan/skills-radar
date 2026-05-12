@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Skills Radar',
-  description: 'Agent Skill 业界真实方案地图 · 19 个公开可验证的产品 / 6 大生命周期',
+  description: '基于 skill-insight 全生命周期管理方法论 · Agent Skill 业界真实方案地图（24 个公开可验证的产品 / 6 大生命周期）',
   base: '/skills-radar/',
   ignoreDeadLinks: true,
 
@@ -17,7 +17,7 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '技术雷达', link: '/radar/' },
+      { text: '技术雷达', link: '/radar/radar-chart' },
       { text: '技术分类', link: '/radar/category-01-generation' },
       { text: 'GitHub', link: 'https://github.com/wldandan/skills-radar' },
     ],
@@ -56,6 +56,7 @@ export default defineConfig({
             { text: 'Claudeception', link: '/radar/tech-claudeception' },
             { text: 'Trace2Skill', link: '/radar/tech-trace2skill' },
             { text: 'SkillX', link: '/radar/tech-skillx' },
+            { text: 'SkillRL', link: '/radar/tech-skillrl' },
           ]
         },
         {
@@ -74,6 +75,7 @@ export default defineConfig({
           items: [
             { text: 'OpenSpace', link: '/radar/tech-openspace' },
             { text: 'Memento-Skills', link: '/radar/tech-memento-skills' },
+            { text: 'SkCC', link: '/radar/tech-skcc' },
           ]
         },
         {
@@ -81,6 +83,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'SkillsBench', link: '/radar/tech-skillsbench' },
+            { text: 'SkillRet', link: '/radar/tech-skillret' },
+            { text: 'ACE (Agentic Context Engineering)', link: '/radar/tech-ace' },
             { text: 'Hermes Self-Evolution', link: '/radar/tech-hermes-self-evolution' },
             { text: 'SkillClaw', link: '/radar/tech-skillclaw' },
             { text: 'MetaClaw', link: '/radar/tech-metaclaw' },
@@ -92,6 +96,7 @@ export default defineConfig({
           text: '业界产品详解 · 管理',
           collapsed: true,
           items: [
+            { text: 'Vercel skills.sh', link: '/radar/tech-skills-sh' },
             { text: 'Agent Skills 标准', link: '/radar/tech-skills-standard' },
           ]
         },
@@ -103,7 +108,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Agent Skill 业界真实方案地图 · 数据来自公开论文、开源仓库与产品页',
+      message: '基于 skill-insight 全生命周期管理方法论 · 数据来自公开论文、开源仓库与产品页',
       copyright: 'MIT License | Skills Radar'
     }
   }

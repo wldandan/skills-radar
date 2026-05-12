@@ -10,10 +10,11 @@
 
 | 产品 | 来源 | 核心路径 | 关键数字 |
 |---|---|---|---|
-| [SkillRouter](tech-skillrouter) | 学术 | 双编码器 + 重排，全文检索 | **80K 池 74% Hit@1**，1.2B 快 13× |
+| [SkillRouter](tech-skillrouter) | 学术 | 双编码器 + 重排，全文检索 | **80K 池 74% Hit@1**，1.2B 少 13× 参数、快 5.8× |
 | [AgentSkillOS](tech-agentskillos) | 学术 | Capability Tree + DAG | 200–200K 规模逼近理想 |
-| [SkillNet](tech-skillnet) | 浙大 NLP | Ontology 三层架构 | 40 万+ Skill 仓库 |
-| [SkillRouter.org](tech-skillrouter-org) | 商业产品 | 即插即用 MCP 服务 | 技术细节不透明 |
+| [SkillNet](tech-skillnet) | 浙大 NLP (735 ★) | Ontology 三层架构 | **200K+ Skill 仓库** |
+| [SkillRouter.org](tech-skillrouter-org) | 商业（早期） | MCP 路由服务 | 落地页阶段，无公开评测 |
+| **[SkillRet](tech-skillret)** ★ | 学术 | Skill 检索 benchmark | 17,810 Skill / NDCG@10 +13.1 |
 
 ---
 

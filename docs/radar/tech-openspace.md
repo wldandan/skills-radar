@@ -6,14 +6,14 @@
 
 ## 基本信息
 
-**一句话描述**: 把 Skill 全生命周期管理整合到一个 MCP Server 里 —— **三模式自动进化**（FIX / DERIVED / CAPTURED）+ 4.7K+ ★ 生态。
+**一句话描述**: 把 Skill 全生命周期管理整合到一个 MCP Server 里 —— **三模式自动进化**（FIX / DERIVED / CAPTURED）+ **6.1K+ ★** 生态。
 
 **来源**:
 - 学术 + 开源 - HKU HKUDS
 - MCP Server 即插即用
 
 **链接**:
-- GitHub：[HKUDS/OpenSpace](https://github.com/HKUDS/OpenSpace)（4.7K+ ★）
+- GitHub：[HKUDS/OpenSpace](https://github.com/HKUDS/OpenSpace)（**6.1K+ ★**）
 - 社区云：[open-space.cloud](https://open-space.cloud/)
 
 ---
@@ -58,7 +58,7 @@
 | 技术成熟度 | 0.75 | 已有云服务部署 + 完整开源代码 |
 | 创新性 | 0.75 | 三模式进化是工程化集大成 |
 | 落地程度 | 0.70 | MCP 接入降低使用门槛 |
-| 生态活跃度 | 0.85 | 4.7K+ ★ · 云社区 · 跨平台 |
+| 生态活跃度 | 0.90 | 6.1K+ ★ · 云社区 · 跨平台 |
 
 **综合评分**: **0.76**
 

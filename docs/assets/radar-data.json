@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "created": "2026-05-12",
-    "source": "Skills Radar - 业界真实产品视图（基于 Skill-insight 竞品分析）",
-    "note": "本版本只收录有公开论文/开源仓库/产品页可验证的业界真实方案；不包含本团队自研能力。"
+    "source": "Skills Radar - 业界真实产品视图（基于 Skill-insight 全生命周期管理方法论）",
+    "note": "本版本只收录有公开论文 / 开源仓库 / 产品页可验证的业界真实方案。所有数据经过两轮事实校验。"
   },
   "dimensions": [
     {
@@ -22,13 +22,13 @@
       "key": "adoption",
       "label": "落地程度",
       "weight": 0.25,
-      "description": "在真实产品/项目/企业场景中的应用广度"
+      "description": "在真实产品 / 项目 / 企业场景中的应用广度"
     },
     {
       "key": "ecosystem",
       "label": "生态活跃度",
       "weight": 0.20,
-      "description": "GitHub Star、引用、贡献者、商业生态"
+      "description": "GitHub Star · 引用 · 贡献者 · 商业生态"
     }
   ],
   "categories": [
@@ -41,53 +41,53 @@
         {
           "id": "skill-creator",
           "name": "Skill Creator",
-          "description": "Anthropic 官方引导式创建 + Eval 闭环 + description 自动优化",
-          "source": "Anthropic 官方课程",
-          "link": "https://github.com/anthropics/courses/tree/master/skill-creator",
+          "description": "Anthropic 官方在 Claude 文档中的 Agent Skills 创建指引（含 description 优化与 Eval 流程）",
+          "source": "Anthropic 官方",
+          "link": "https://docs.claude.com/en/docs/agents-and-tools/agent-skills",
           "scores": [0.75, 0.45, 0.85, 0.80],
           "status": "active"
         },
         {
           "id": "skill-seekers",
           "name": "Skill Seekers",
-          "description": "18 种数据源 → 20 个平台的自动化文档转 Skill 流水线",
-          "source": "社区开源",
+          "description": "18 种数据源 → 20 个目标（12 LLM + 8 RAG / 向量）的自动化文档转 Skill 流水线（13.4K+ ★）",
+          "source": "社区开源 (13.4K+ ★)",
           "link": "https://github.com/yusufkaraaslan/Skill_Seekers",
-          "scores": [0.70, 0.65, 0.65, 0.60],
+          "scores": [0.75, 0.65, 0.70, 0.75],
           "status": "active"
         },
         {
           "id": "evoskill",
           "name": "EvoSkill",
-          "description": "Executor / Proposer / Skill-Builder 三 Agent 从失败中自动发现并物化 Skill",
-          "source": "Sentient AGI",
+          "description": "Executor / Proposer / Skill-Builder 三 Agent 从失败中自动发现 Skill；+7.3% OfficeQA / +12.1% SealQA",
+          "source": "Sentient AGI (726 ★)",
           "link": "https://github.com/sentient-agi/EvoSkill",
-          "scores": [0.55, 0.80, 0.35, 0.40],
+          "scores": [0.55, 0.80, 0.35, 0.45],
           "status": "active"
         },
         {
           "id": "evoskills",
           "name": "EvoSkills / CoEvoSkills",
-          "description": "Surrogate Verifier + Ground-truth Oracle 协同进化，75% 通过率（vs 人工 34.1%）",
+          "description": "Surrogate Verifier + Ground-truth Oracle 协同进化（75% 通过率 vs Skill Creator 34.1% 基线）",
           "source": "学术研究",
-          "link": "https://evoskills.net/",
+          "link": "https://arxiv.org/abs/2604.01687",
           "scores": [0.55, 0.85, 0.30, 0.40],
           "status": "research"
         },
         {
           "id": "claudeception",
           "name": "Claudeception",
-          "description": "Claude Code 会话中自动提取「可复用 + 非平凡 + 具体 + 已验证」的 Skill",
-          "source": "社区开源 (506+ ★)",
+          "description": "Claude Code 会话中自动提取「可复用 + 非平凡 + 具体 + 已验证」的 Skill（2.3K+ ★）",
+          "source": "社区开源 (2.3K+ ★)",
           "link": "https://github.com/blader/Claudeception",
-          "scores": [0.65, 0.55, 0.70, 0.75],
+          "scores": [0.70, 0.55, 0.75, 0.80],
           "status": "active"
         },
         {
           "id": "trace2skill",
           "name": "Trace2Skill",
-          "description": "并行多 sub-agent 编队从轨迹池蒸馏 Skill，35B 模型 +57.65pp 超越 122B",
-          "source": "阿里 Qwen 团队 + ETH Zurich",
+          "description": "并行多 sub-agent 编队从轨迹池蒸馏 Skill；35B 模型在 WikiTableQuestions 上 +57.65pp 超 122B",
+          "source": "阿里 Qwen + ETH Zurich",
           "link": "https://arxiv.org/abs/2603.25158",
           "scores": [0.65, 0.80, 0.45, 0.50],
           "status": "active"
@@ -95,20 +95,29 @@
         {
           "id": "skillforge-gen",
           "name": "SkillForge",
-          "description": "从历史工单挖掘领域工具 schema + 三阶段自优化流水线（阿里云生产验证）",
-          "source": "阿里云",
+          "description": "从历史工单（1,883 条）挖掘领域工具 schema + 三阶段自优化流水线（SIGIR 2026 Industry）",
+          "source": "工业研究 (SIGIR 2026)",
           "link": "https://arxiv.org/abs/2604.08618",
-          "scores": [0.70, 0.65, 0.55, 0.35],
+          "scores": [0.70, 0.65, 0.55, 0.40],
           "status": "active"
         },
         {
           "id": "skillx",
           "name": "SkillX",
-          "description": "策略 / 功能 / 原子三层 Skill 粒度设计，强模型经验向弱模型蒸馏",
+          "description": "策略 / 功能 / 原子三层 Skill 粒度设计（AppWorld + BFCL-v3 + τ²-Bench 验证）",
           "source": "学术研究",
           "link": "https://arxiv.org/abs/2604.04804",
           "scores": [0.45, 0.65, 0.25, 0.25],
           "status": "research"
+        },
+        {
+          "id": "skillrl",
+          "name": "SkillRL",
+          "description": "经验蒸馏 + 自适应检索 + Skill 库与 RL 策略递归共进化的分层 SkillBank（+15.3% over baselines）",
+          "source": "aiming-lab (学术)",
+          "link": "https://arxiv.org/abs/2602.08234",
+          "scores": [0.55, 0.70, 0.40, 0.45],
+          "status": "active"
         }
       ]
     },
@@ -121,7 +130,7 @@
         {
           "id": "skillrouter",
           "name": "SkillRouter",
-          "description": "全文检索 + 重排，80K Skill 池上 74% Hit@1，1.2B 模型 13× 快于 16B",
+          "description": "全文检索 + 重排，80K Skill 池 74% Hit@1；1.2B 参数比 16B 基线少 13×、快 5.8×",
           "source": "学术研究",
           "link": "https://arxiv.org/abs/2603.22455",
           "scores": [0.75, 0.70, 0.55, 0.50],
@@ -130,7 +139,7 @@
         {
           "id": "agentskillos-recall",
           "name": "AgentSkillOS",
-          "description": "Capability Tree 递归分类 + DAG 编排，200-200K 规模逼近理想准确率",
+          "description": "Capability Tree 递归分类 + DAG 编排，200–200K 规模逼近理想准确率",
           "source": "学术研究",
           "link": "https://arxiv.org/abs/2603.02176",
           "scores": [0.55, 0.75, 0.35, 0.35],
@@ -139,20 +148,20 @@
         {
           "id": "skillnet-recall",
           "name": "SkillNet",
-          "description": "40 万+ Skill 共享仓库 + 三层 Ontology（分类 / 实体 / 关系图谱）",
-          "source": "浙大 NLP",
+          "description": "200K+ Skill 共享仓库 + 三层 Ontology（分类 / 实体 / 关系图谱），ALFWorld/WebShop/ScienceWorld +40% reward",
+          "source": "浙大 NLP (735 ★)",
           "link": "https://github.com/zjunlp/SkillNet",
-          "scores": [0.70, 0.70, 0.55, 0.65],
+          "scores": [0.70, 0.70, 0.55, 0.60],
           "status": "active"
         },
         {
           "id": "skillrouter-org",
           "name": "SkillRouter.org",
-          "description": "即插即用的 MCP 路由商业服务（技术细节未公开）",
-          "source": "社区产品",
+          "description": "MCP 路由商业服务（当前为早期阶段 / 落地页，技术细节未公开）",
+          "source": "商业产品（早期）",
           "link": "https://skillrouter.org/",
-          "scores": [0.50, 0.40, 0.45, 0.40],
-          "status": "active"
+          "scores": [0.40, 0.35, 0.40, 0.35],
+          "status": "early"
         }
       ]
     },
@@ -165,16 +174,16 @@
         {
           "id": "openspace-exec",
           "name": "OpenSpace",
-          "description": "作为 MCP Server 即插即用接入 Claude Code / Codex / Cursor",
-          "source": "HKU HKUDS (4.7K+ ★)",
+          "description": "作为 MCP Server 即插即用接入 Claude Code / Codex / Cursor（6.1K+ ★）",
+          "source": "HKU HKUDS (6.1K+ ★)",
           "link": "https://github.com/HKUDS/OpenSpace",
-          "scores": [0.70, 0.65, 0.70, 0.85],
+          "scores": [0.75, 0.65, 0.75, 0.90],
           "status": "active"
         },
         {
           "id": "agentskillos-exec",
           "name": "AgentSkillOS",
-          "description": "DAG 编排：能并行的并行、必须串行的串行（30 个 artifact-rich 任务验证）",
+          "description": "DAG 编排：能并行的并行、必须串行的串行（30 任务 5 类基准）",
           "source": "学术研究",
           "link": "https://arxiv.org/abs/2603.02176",
           "scores": [0.55, 0.75, 0.35, 0.35],
@@ -183,10 +192,19 @@
         {
           "id": "memento-skills",
           "name": "Memento-Skills",
-          "description": "Read→Execute→Reflect→Write 闭环，行为可训练 Skill Router（GAIA +26.2%）",
+          "description": "Read → Execute → Reflect → Write 闭环 + 行为可训练 Skill Router（GAIA +26.2%, HLE +116.2%）",
+          "source": "学术研究 (1.4K+ ★)",
+          "link": "https://github.com/Memento-Teams/Memento-Skills",
+          "scores": [0.55, 0.75, 0.40, 0.55],
+          "status": "active"
+        },
+        {
+          "id": "skcc",
+          "name": "SkCC",
+          "description": "SkIR 强类型 IR：将 Skill 语义与框架格式解耦，实现跨 Agent 框架可移植部署",
           "source": "学术研究",
-          "link": "https://arxiv.org/abs/2603.18743",
-          "scores": [0.55, 0.75, 0.35, 0.45],
+          "link": "https://arxiv.org/abs/2605.03353",
+          "scores": [0.50, 0.80, 0.30, 0.30],
           "status": "research"
         }
       ]
@@ -200,9 +218,9 @@
         {
           "id": "skillsbench",
           "name": "SkillsBench",
-          "description": "7,308 条标准化轨迹 / 84 任务 / 11 领域，Skill 评测的事实标准（+16.2pp）",
-          "source": "学术研究",
-          "link": "https://arxiv.org/abs/2602.12670",
+          "description": "7,308 条标准化轨迹 / 84 任务 / 11 领域（leaderboard 标注 86），Skill 评测事实标准（+16.2pp）",
+          "source": "学术研究 (1.2K+ ★)",
+          "link": "https://github.com/benchflow-ai/skillsbench",
           "scores": [0.75, 0.65, 0.65, 0.55],
           "status": "active"
         },
@@ -211,14 +229,14 @@
           "name": "SkillNet (5 维评分)",
           "description": "安全 / 完整 / 可执行 / 可维护 / 成本五维 Skill 内在质量评估",
           "source": "浙大 NLP",
-          "link": "https://github.com/zjunlp/SkillNet",
-          "scores": [0.70, 0.70, 0.55, 0.65],
+          "link": "https://arxiv.org/abs/2603.04448",
+          "scores": [0.70, 0.70, 0.55, 0.60],
           "status": "active"
         },
         {
           "id": "evoskills-eval",
           "name": "EvoSkills (Surrogate Verifier)",
-          "description": "信息隔离的 LLM 主动生成测试断言并给出失败诊断反馈",
+          "description": "信息隔离的 LLM 主动生成测试断言 + 失败诊断反馈；去掉 Surrogate 通过率 71.1% → 41.1%",
           "source": "学术研究",
           "link": "https://arxiv.org/abs/2604.01687",
           "scores": [0.55, 0.85, 0.30, 0.40],
@@ -228,10 +246,19 @@
           "id": "skillforge-eval",
           "name": "SkillForge (Diagnostician)",
           "description": "Failure Analyzer → Skill Diagnostician：将执行失败追溯回具体 Skill 缺陷",
-          "source": "阿里云",
+          "source": "工业研究",
           "link": "https://arxiv.org/abs/2604.08618",
-          "scores": [0.65, 0.65, 0.50, 0.35],
+          "scores": [0.65, 0.65, 0.50, 0.40],
           "status": "active"
+        },
+        {
+          "id": "skillret",
+          "name": "SkillRet",
+          "description": "Skill 检索大规模基准：17,810 公共 Skill / 63K 训练 / 5K 评测查询，NDCG@10 +13.1",
+          "source": "学术研究",
+          "link": "https://arxiv.org/abs/2605.05726",
+          "scores": [0.55, 0.55, 0.40, 0.35],
+          "status": "research"
         }
       ]
     },
@@ -244,35 +271,44 @@
         {
           "id": "openspace",
           "name": "OpenSpace",
-          "description": "FIX / DERIVED / CAPTURED 三模式实时进化，220 任务 40.8% → 70.8%、Token -46%",
-          "source": "HKU HKUDS (4.7K+ ★)",
+          "description": "FIX / DERIVED / CAPTURED 三模式实时进化；220 任务 40.8% → 70.8%、Token -46%、6 → 60+ Skill",
+          "source": "HKU HKUDS (6.1K+ ★)",
           "link": "https://github.com/HKUDS/OpenSpace",
-          "scores": [0.75, 0.75, 0.70, 0.85],
+          "scores": [0.75, 0.75, 0.75, 0.90],
+          "status": "active"
+        },
+        {
+          "id": "ace",
+          "name": "ACE (Agentic Context Engineering)",
+          "description": "Stanford 等：把 context 当作演化的 playbook，生成 / 反思 / 策展三阶段（+10.6% 智能体 / +8.6% 金融）",
+          "source": "Stanford 等 (ICLR 2026)",
+          "link": "https://arxiv.org/abs/2510.04618",
+          "scores": [0.65, 0.85, 0.50, 0.65],
           "status": "active"
         },
         {
           "id": "hermes-self-evolution",
           "name": "Hermes Self-Evolution",
-          "description": "GEPA 优化器（ICLR 2026 Oral）+ 严格约束门控 + PR 模式人工审核",
-          "source": "Nous Research",
+          "description": "GEPA 优化器 + 严格约束门控 + PR 模式人工审核（父仓 hermes-agent 145K+ ★）",
+          "source": "Nous Research (3.1K+ ★)",
           "link": "https://github.com/NousResearch/hermes-agent-self-evolution",
-          "scores": [0.65, 0.85, 0.55, 0.75],
+          "scores": [0.65, 0.85, 0.55, 0.80],
           "status": "active"
         },
         {
           "id": "skillclaw",
           "name": "SkillClaw",
-          "description": "后台守护进程静默聚合多用户轨迹 → 进化 Skill → 同步回全用户",
-          "source": "AMAP-ML",
+          "description": "后台守护进程聚合多用户轨迹 → 进化 Skill → 同步全用户（Qwen3-Max + WildClawBench 验证）",
+          "source": "AMAP-ML (1.3K+ ★)",
           "link": "https://github.com/AMAP-ML/SkillClaw",
-          "scores": [0.55, 0.75, 0.40, 0.50],
+          "scores": [0.55, 0.75, 0.40, 0.55],
           "status": "active"
         },
         {
           "id": "metaclaw",
           "name": "MetaClaw",
-          "description": "Fast Loop（Skill 秒级）+ Slow Loop（LoRA 小时级）双环架构，零停机进化",
-          "source": "OpenClaw 生态 (3.5K+ ★)",
+          "description": "Fast Loop（秒级 Skill）+ Slow Loop（小时级 LoRA）双环零停机进化（Kimi-K2.5 21.4% → 40.6%）",
+          "source": "OpenClaw (3.4K+ ★)",
           "link": "https://github.com/aiming-lab/MetaClaw",
           "scores": [0.60, 0.80, 0.50, 0.70],
           "status": "active"
@@ -280,10 +316,10 @@
         {
           "id": "skillreducer",
           "name": "SkillReducer",
-          "description": "55K Skill 实证：48% description / 39% body 压缩，质量反升 2.8%（less-is-more）",
+          "description": "Skill 静态压缩 + 渐进披露：48% description / 39% body 压缩，质量反升 2.8%（less-is-more）",
           "source": "港科大等",
           "link": "https://arxiv.org/abs/2603.29919",
-          "scores": [0.65, 0.70, 0.40, 0.40],
+          "scores": [0.60, 0.70, 0.40, 0.40],
           "status": "research"
         },
         {
@@ -292,16 +328,25 @@
           "description": "Pareto 前沿选择 + Git 分支管理每个进化变体",
           "source": "Sentient AGI",
           "link": "https://github.com/sentient-agi/EvoSkill",
-          "scores": [0.55, 0.80, 0.35, 0.40],
+          "scores": [0.55, 0.80, 0.35, 0.45],
           "status": "active"
         },
         {
           "id": "skillforge-opt",
           "name": "SkillForge (Optimizer)",
           "description": "Failure Analyzer → Diagnostician → Optimizer 端到端 Skill 重写流水线",
-          "source": "阿里云",
+          "source": "工业研究",
           "link": "https://arxiv.org/abs/2604.08618",
-          "scores": [0.70, 0.65, 0.55, 0.35],
+          "scores": [0.70, 0.65, 0.55, 0.40],
+          "status": "active"
+        },
+        {
+          "id": "skillrl-opt",
+          "name": "SkillRL",
+          "description": "Skill 库随 RL 策略递归共进化，分层 SkillBank 持续生长",
+          "source": "aiming-lab",
+          "link": "https://github.com/aiming-lab/SkillRL",
+          "scores": [0.55, 0.70, 0.40, 0.45],
           "status": "active"
         }
       ]
@@ -313,12 +358,21 @@
       "color": "#B8B8B8",
       "technologies": [
         {
+          "id": "skills-sh",
+          "name": "Vercel skills.sh",
+          "description": "Vercel 官方运营的 Skill 注册中心 / 排行榜，90,000+ Skill、19 个 Agent 框架支持",
+          "source": "Vercel (2026-01 上线)",
+          "link": "https://skills.sh/",
+          "scores": [0.80, 0.55, 0.85, 0.85],
+          "status": "active"
+        },
+        {
           "id": "skillnet",
           "name": "SkillNet",
-          "description": "40 万+ Skill 集中式知识库，搜索 / 下载 / 五维评分（公共市场模式）",
+          "description": "200K+ Skill 集中式知识库，搜索 / 下载 / 五维评分（公共市场模式）",
           "source": "浙大 NLP",
           "link": "https://github.com/zjunlp/SkillNet",
-          "scores": [0.65, 0.55, 0.55, 0.65],
+          "scores": [0.65, 0.55, 0.55, 0.60],
           "status": "active"
         },
         {
@@ -333,10 +387,10 @@
         {
           "id": "skills-standard",
           "name": "Agent Skills 标准",
-          "description": "agentskills.io：跨平台 Skill 格式与协议的开放标准（仅规范级别）",
-          "source": "社区标准",
+          "description": "agentskills.io：Anthropic 发起的跨平台 Skill 开放标准，~38+ 产品采用（Claude Code / Cursor / Gemini CLI 等）",
+          "source": "开放标准（Anthropic 发起）",
           "link": "https://agentskills.io/",
-          "scores": [0.55, 0.50, 0.55, 0.60],
+          "scores": [0.65, 0.60, 0.70, 0.75],
           "status": "active"
         }
       ]
@@ -349,15 +403,15 @@
       "maturityLevel": "mature",
       "overallScore": 0.65,
       "status": "🟢 成熟期",
-      "judgement": "SkillRouter 在 80K 池上达 74% Hit@1 并工程化，AgentSkillOS 提供 DAG 编排。基础问题已有可工程化方案。"
+      "judgement": "SkillRouter 在 80K 池上达 74% Hit@1 并工程化，AgentSkillOS 提供 DAG 编排。基础问题已有可工程化方案。SkillRet（17,810 公共 Skill）补充了缺失的检索 benchmark。"
     },
     {
       "id": "optimization",
       "label": "Skill 优化",
       "maturityLevel": "growing",
-      "overallScore": 0.58,
-      "status": "🟡 成长期",
-      "judgement": "七个进化框架 + SkillReducer Token 优化技术路径最丰富，但各自为政缺标准，且没有任何进化框架在循环中加入安全扫描。"
+      "overallScore": 0.60,
+      "status": "🟢 成熟期（边界）",
+      "judgement": "八个进化框架 + ACE context engineering（ICLR 2026）+ SkillReducer Token 优化，技术路径最丰富。但各自为政缺标准，且没有任何进化框架在循环中加入安全扫描。"
     },
     {
       "id": "generation",
@@ -365,31 +419,31 @@
       "maturityLevel": "growing",
       "overallScore": 0.55,
       "status": "🟡 成长期",
-      "judgement": "11 个产品占据最拥挤赛道（失败驱动 / 文档转化 / 会话提取 / 轨迹蒸馏 / 领域工单 / GEPA 进化），但每条路径都局限于特定输入类型，差异化空间在缩小。"
+      "judgement": "9 个产品占据最拥挤赛道（失败驱动 / 文档转化 / 会话提取 / 轨迹蒸馏 / 领域工单 / RL 共进化 / GEPA），但每条路径都局限于特定输入类型，差异化空间在缩小。"
     },
     {
       "id": "evaluation",
       "label": "Skill 评测",
       "maturityLevel": "growing",
-      "overallScore": 0.45,
+      "overallScore": 0.47,
       "status": "🟡 成长期",
-      "judgement": "SkillsBench 提供事实标准，SkillNet 5 维评分有效，但全部是结果评测——过程评测和多 Skill 归因完全空白，是最大结构性缺口。"
+      "judgement": "SkillsBench 提供事实标准、SkillNet 5 维评分有效、SkillRet 给路由补 benchmark，但全部是结果评测——过程评测和多 Skill 归因仍是结构性缺口。"
     },
     {
       "id": "execution",
       "label": "Skill 执行",
-      "maturityLevel": "exploring",
-      "overallScore": 0.42,
-      "status": "🔴 探索期",
-      "judgement": "EvoSkills 解决人机认知失配（75% 通过率），但 SkillsBench 揭示的 16/84 负增益 + 跨领域增益从 +4.5pp 到 +51.9pp 的差异，核心痛点仍无方案。"
+      "maturityLevel": "growing",
+      "overallScore": 0.45,
+      "status": "🟡 成长期",
+      "judgement": "SkCC（SkIR 强类型 IR）刚刚填补了跨框架可移植性这一历史空白，但 SkillsBench 揭示的 16/84 负增益、跨领域增益从 +4.5pp 到 +51.9pp 的差异仍无方案。"
     },
     {
       "id": "management",
       "label": "Skill 管理",
       "maturityLevel": "exploring",
-      "overallScore": 0.32,
-      "status": "🔴 探索期",
-      "judgement": "攻击面已被充分研究（26.1% 漏洞、OWASP Top 10、多个 CVE）但防御工具为零，是攻防最不对称的阶段。版本管理、灰度发布、模型升级兼容性也全部空白。"
+      "overallScore": 0.40,
+      "status": "🟡 成长期（边界）",
+      "judgement": "skills.sh 给了 90K+ Skill 的事实分发标准、agentskills.io 形成开放规范，但 26.1% 社区 Skill 含漏洞、自动化扫描工具为零的攻防不对称仍然存在。"
     }
   ]
 }

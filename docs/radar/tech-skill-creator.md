@@ -6,14 +6,15 @@
 
 ## 基本信息
 
-**一句话描述**: Anthropic 官方的引导式 Skill 创建工具，把"写 Skill"变成"写代码 → 跑单元测试 → 看覆盖率 → 改 Bug"的工程循环。
+**一句话描述**: Anthropic 官方在 Claude 文档中为 Agent Skills 提供的创建指引，把"写 Skill"变成"写测试 prompt → 跑 Eval → 看通过率 → 改 description → 再跑"的工程循环。
 
 **来源**:
-- 工业实现 - Anthropic 官方课程
-- 内置于 Claude Code 生态
+- 工业实现 - Anthropic 官方
+- 出现在 Claude 官方文档与 Claude Code 工作流中
 
 **链接**:
-- 项目链接：[anthropics/courses/skill-creator](https://github.com/anthropics/courses/tree/master/skill-creator)
+- 官方文档：[Agent Skills - Claude Docs](https://docs.claude.com/en/docs/agents-and-tools/agent-skills)
+- 注：曾流传的 `anthropics/courses/skill-creator` 路径**已不存在**，相关能力现集成在 Claude Code / Claude API 工作流中
 
 ---
 
@@ -70,5 +71,5 @@
 
 ## 参考资料
 
-- [anthropics/courses · skill-creator](https://github.com/anthropics/courses/tree/master/skill-creator)
+- [Anthropic Agent Skills 官方文档](https://docs.claude.com/en/docs/agents-and-tools/agent-skills)
 - 对比基线：[EvoSkills 论文](https://arxiv.org/abs/2604.01687)（Skill Creator 34.1% vs EvoSkills 75%）

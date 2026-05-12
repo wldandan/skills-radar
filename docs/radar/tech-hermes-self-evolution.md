@@ -6,7 +6,7 @@
 
 ## 基本信息
 
-**一句话描述**: Nous Research 的 Skill 自动进化引擎 —— **GEPA 优化器**（ICLR 2026 Oral）+ 严格约束门控 + PR 模式人工审核。
+**一句话描述**: Nous Research 的 Skill 自动进化引擎 —— **GEPA 优化器**（ICLR 2026 接收，Oral 状态以官方录用为准）+ 严格约束门控 + PR 模式人工审核。
 
 **来源**:
 - 工业 + 学术 - Nous Research
@@ -14,7 +14,8 @@
 
 **链接**:
 - 自进化仓库：[hermes-agent-self-evolution](https://github.com/NousResearch/hermes-agent-self-evolution)
-- 主 Agent 仓库：[hermes-agent](https://github.com/NousResearch/hermes-agent)（101K+ ★）
+- 主 Agent 仓库：[hermes-agent](https://github.com/NousResearch/hermes-agent)（**145K+ ★**）
+- 自进化仓库本身：**3.1K+ ★**
 - [PLAN.md 设计文档](https://github.com/NousResearch/hermes-agent-self-evolution/blob/main/PLAN.md)
 
 ---
@@ -27,7 +28,7 @@
 
 **例**：GitHub PR 代码审查 Skill 在大 PR 上经常遗漏安全问题 → GEPA 分析轨迹发现"Skill 没有指示 Agent 按文件类型分组审查" → 生成改进版本加上这个指示。
 
-基于 DSPy 框架，**ICLR 2026 Oral**。
+基于 DSPy 框架，**已被 ICLR 2026 接收**（Oral 状态请以官方录用通知为准）。
 
 ### 严格安全门控
 
@@ -62,7 +63,7 @@
 | 技术成熟度 | 0.65 | 已可工程使用，有完整 PLAN.md |
 | 创新性 | 0.85 | GEPA 是 ICLR Oral 工作，方法论级突破 |
 | 落地程度 | 0.55 | Hermes 生态内已实用，跨平台未普及 |
-| 生态活跃度 | 0.75 | Nous 社区活跃，Hermes Agent 101K+ ★ |
+| 生态活跃度 | 0.80 | Nous 社区活跃，Hermes Agent 145K+ ★ |
 
 **综合评分**: **0.70**
 
