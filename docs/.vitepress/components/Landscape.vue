@@ -163,9 +163,6 @@ function allLinks(tech) {
 <template>
   <div class="landscape-root">
     <header class="landscape-header">
-      <a href="/skills-radar/" class="brand">
-        <span class="brand-name">Skills Radar</span>
-      </a>
       <div class="header-controls">
         <input
           v-model="filterText"
@@ -354,21 +351,6 @@ function allLinks(tech) {
   margin-bottom: 20px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--vp-c-text-1);
-  margin-right: 4px;
-}
-
-.brand-name {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  white-space: nowrap;
 }
 
 .stats-label {
