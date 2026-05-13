@@ -6,7 +6,7 @@
 
 ## 在线访问
 
-**https://leon-wang2021.github.io/skills-radar/**
+**https://wldandan.github.io/skills-radar/**
 
 ## 项目目标
 
