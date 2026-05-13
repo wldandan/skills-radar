@@ -62,6 +62,7 @@
 | **SkillProbe** | 学术 | 用"魔法"打败"魔法"——用 Skill 审计 Skills | - |
 | **Cross-Evaluation** | 学术 | 多 Skill、多模型、多任务横向对比 | - |
 | **AgentOps** | 学术 | AI Agent 系统的可观测性研究 | - |
+| **agent-skills-eval** | 社区开源 | Agent Skills评测框架，基于with_skill vs without_skill 对比测试 | [GitHub](https://github.com/darkrishabh/agent-skills-eval) |
 
 ---
 
