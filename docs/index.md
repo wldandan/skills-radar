@@ -74,6 +74,7 @@ hero:
 | **skill-insight** | 多维评测、执行追溯、归因分析 | 🟢 0.73 | [详解](/radar/tech-skillinsight) · [官网](https://atomgit.com/openeuler/witty-skill-insight) · [原文](https://zhuanlan.zhihu.com/p/2004914907972401040) |
 | **SkillsBench** | 基准测试，人工精选 Skills 提升 16.2% | 🟡 0.70 | [详解](/radar/tech-skillsbench) |
 | **SkillProbe** | 安全审计，检测 26% 漏洞率 | 🟡 0.61 | [详解](/radar/tech-skillprobe) · [原文](https://zhuanlan.zhihu.com/p/2020165820400054775) · [论文](https://arxiv.org/pdf/2603.21019) |
+| **agent-skills-eval** | with_skill vs without_skill对比评测框架 | 🟡 0.62 | [GitHub](https://github.com/darkrishabh/agent-skills-eval) |
 
 ---
 

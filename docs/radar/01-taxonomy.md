@@ -90,7 +90,7 @@ Skills 技术分类体系基于 [skill-insight](https://atomgit.com/openeuler/wi
 - 归因分析：区分 Skill 设计问题与模型能力问题
 - 安全审计：检测 Skill 中的安全漏洞
 
-**代表项目**：skill-insight、SkillsBench、SkillProbe、Cross-Evaluation
+**代表项目**：skill-insight、SkillsBench、SkillProbe、agent-skills-eval、Cross-Evaluation
 
 [查看完整技术文档 →](./category-04-evaluation.md)
 

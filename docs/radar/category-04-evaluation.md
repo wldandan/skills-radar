@@ -96,6 +96,19 @@ openEuler 社区推出的多维评测与执行追溯平台。
 
 **详细页面**：[SkillProbe 详解](./tech-skillprobe)
 
+### 3.4 agent-skills-eval
+
+Agent Skills 测试运行器，支持 with_skill vs without_skill 对比评测。
+
+**核心能力**：
+- 同一 prompt 双向运行（with_skill / without_skill）
+- Judge 模型评分，输出 pass/fail + 证据
+- 静态 HTML 报告，无需基础设施
+- OpenAI-compatible API 支持
+- TypeScript SDK + CLI 双模式
+
+**链接**：[GitHub](https://github.com/darkrishabh/agent-skills-eval)
+
 ---
 
 ## 四、技术成熟度分析

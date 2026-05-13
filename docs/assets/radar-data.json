@@ -200,6 +200,13 @@
           "description": "多Skill、多模型、多任务横向对比",
           "scores": [0.60, 0.55, 0.50, 0.45],
           "status": "active"
+        },
+        {
+          "id": "agent-skills-eval",
+          "name": "agent-skills-eval",
+          "description": "Agent Skills评测框架，with_skill vs without_skill对比测试",
+          "scores": [0.65, 0.70, 0.50, 0.60],
+          "status": "active"
         }
       ]
     },
